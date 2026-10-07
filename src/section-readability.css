@@ -1,3 +1,4 @@
+
 /* Comfortable reading sizes across the portfolio, including secondary labels. */
 :root { --muted: #b9b9c0; --subtle: #a0a0aa; }
 :root[data-theme='light'] { --muted: #48484f; --subtle: #606069; }
@@ -281,4 +282,28 @@ body { font-size: 18px; }
   .visual-stats.three > div { padding: 9px 7px; }
   .network-node { font-size: 10px; padding: 5px 6px; }
   .dialog-content > .project-visual { min-height: 560px; max-height: none; }
+}
+/* Keep desktop cards stacked even on shorter laptop screens. */
+@media (min-width: 901px) {
+  .work-gallery.is-pinned { height: 100svh; min-height: 0; overflow: hidden; padding-top: 120px; padding-bottom: 24px; }
+  .work-gallery.is-pinned .gallery-inner { min-height: 0; }
+  .work-gallery.is-pinned .work-card-stack { display: block; min-height: 0; }
+  .work-gallery.is-pinned .work-gallery-card { position: absolute; inset: 0; min-height: 0; grid-template-columns: 1.1fr 1fr; will-change: transform; backface-visibility: hidden; }
+  .work-gallery.is-pinned .work-info { min-height: 0; overflow: hidden; padding: clamp(18px, 3vh, 30px); }
+  .work-gallery.is-pinned .work-info-top { font-size: 13px; margin-bottom: 14px; }
+  .work-gallery.is-pinned .project-status { font-size: 12px; }
+  .work-gallery.is-pinned .work-info h3 { font-size: clamp(28px, 4.5vh, 42px); margin-bottom: 14px; }
+  .work-gallery.is-pinned .work-info > p { font-size: clamp(14px, 1.9vh, 17px); line-height: 1.5; margin-bottom: 14px; }
+  .work-gallery.is-pinned .project-tags { gap: 5px; }
+  .work-gallery.is-pinned .project-tags > span { font-size: 11px; padding: 3px 6px; }
+  .work-gallery.is-pinned .project-metrics { margin-top: 16px; padding-top: 14px; gap: 12px 20px; }
+  .work-gallery.is-pinned .project-metrics strong { font-size: 19px; }
+  .work-gallery.is-pinned .project-metrics > div > span { font-size: 12px; }
+  .work-gallery.is-pinned .work-info-bottom { padding-top: 16px; }
+  .work-gallery.is-pinned .work-info-bottom .button { min-height: 42px; font-size: 14px; padding: 9px 16px; }
+  .work-gallery.is-pinned .subtle-link { font-size: 14px; }
+  .work-gallery.is-pinned .work-art { min-height: 0; padding: 24px; }
+  .work-gallery.is-pinned .work-art .project-visual { transform: none; transition: none; box-shadow: none; }
+  .work-gallery.is-pinned .work-gallery-card { box-shadow: none; }
+  .work-gallery.is-pinned .work-art .project-visual { min-height: 0; max-height: 100%; }
 }

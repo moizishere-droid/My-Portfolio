@@ -7,7 +7,7 @@ const { JSDOM, VirtualConsole } = require('jsdom');
 const bundleFile = () => path.join('dist/assets', fs.readdirSync('dist/assets').find(file => file.endsWith('.js')));
 const sourceHtml = fs.readFileSync('Abdul Moiz — AI_ML Engineer.html', 'utf8');
 
-async function render({ width = 1440, reducedMotion = true } = {}) {
+async function render({ width = 1440, height = 900, cardHeight = 0, reducedMotion = true } = {}) {
   const errors = [];
   const console = new VirtualConsole();
   console.on('jsdomError', error => errors.push(error.message));
@@ -18,10 +18,12 @@ async function render({ width = 1440, reducedMotion = true } = {}) {
   });
   const { window } = dom;
   Object.defineProperty(window, 'innerWidth', { value: width });
-  Object.defineProperty(window, 'innerHeight', { value: 900 });
+  Object.defineProperty(window, 'innerHeight', { value: height });
+  Object.defineProperty(window.HTMLElement.prototype, 'offsetHeight', { configurable: true, get() { return this.classList.contains('work-gallery-card') ? cardHeight : 0; } });
   window.matchMedia = query => ({
     matches: (!query.includes('min-width') || width >= Number(query.match(/min-width:\s*(\d+)/)?.[1])) &&
       (!query.includes('max-width') || width <= Number(query.match(/max-width:\s*(\d+)/)?.[1])) &&
+      (!query.includes('min-height') || height >= Number(query.match(/min-height:\s*(\d+)/)?.[1])) &&
       (!query.includes('no-preference') || !reducedMotion) &&
       (!query.includes('reduce)') || reducedMotion),
     media: query, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {},
@@ -132,11 +134,22 @@ test('editor controls, theme persistence, resume, copy email, and navigation wor
 });
 
 test('animation setup renders at desktop width without runtime errors', async () => {
-  const page = await render({ width: 1440, reducedMotion: false });
+  const page = await render({ width: 1440, height: 800, cardHeight: 1200, reducedMotion: false });
   try {
     assert.equal(page.document.querySelectorAll('.gradient-bars>span').length, 30);
     assert.equal(page.document.querySelectorAll('.skill-card').length, 6);
     assert.equal(page.document.querySelectorAll('.work-gallery-card').length, 5);
+    assert.ok(page.document.querySelector('.work-gallery.is-pinned'));
+    const nextCardTransform = page.document.querySelectorAll('.work-gallery-card')[1].style.transform;
+    assert.ok(Number(nextCardTransform.match(/translate\(0%,\s*([\d.]+)%\)/)?.[1]) > 110);
+    assert.equal(page.document.querySelectorAll('.work-gallery-card')[2].style.visibility, 'hidden');
+    assert.equal(page.document.querySelector('.work-info[data-lenis-prevent]'), null);
+    assert.equal(page.document.querySelector('.work-gallery-card').style.opacity, '1');
+    page.document.querySelector('.view-toggle').click();
+    await page.settle();
+    assert.equal(page.document.querySelector('.work-gallery.is-pinned'), null);
+    assert.equal(page.document.querySelectorAll('.work-gallery-card[inert]').length, 0);
+    assert.equal(page.document.querySelectorAll('.work-gallery-card')[1].style.visibility, '');
     assert.deepEqual(page.errors, []);
   } finally { page.dom.window.close(); }
 });

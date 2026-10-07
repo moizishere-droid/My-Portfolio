@@ -17,18 +17,29 @@ export default function Projects({ onSelectProject }) {
   useLayoutEffect(() => {
     if (view !== 'gallery' || filter !== 'All work') return;
     const media = gsap.matchMedia();
-    media.add('(min-width: 1101px) and (min-height: 950px) and (prefers-reduced-motion: no-preference)', () => {
+    media.add('(min-width: 901px) and (prefers-reduced-motion: no-preference)', () => {
       const cards = gsap.utils.toArray('.work-gallery-card', scope.current);
       const gallery = scope.current.querySelector('.work-gallery');
-      // Keep the whole description readable if the viewport cannot hold a card.
-      if (Math.max(...cards.map(card => card.offsetHeight)) > window.innerHeight - 190) return;
       gallery.classList.add('is-pinned');
+      setActive(0);
       setPinned(true);
-      gsap.set(cards.slice(1), { yPercent: 120, rotate: 7 });
-      const timeline = gsap.timeline({ scrollTrigger: { trigger: scope.current.querySelector('.work-gallery'), start: 'top top', end: '+=2600', pin: true, scrub: .65, anticipatePin: 1, invalidateOnRefresh: true, onUpdate: self => setActive(Math.min(4, Math.floor(self.progress * 4 + .35))) } });
+      gsap.set(cards, { zIndex: i => i + 1, opacity: 1, force3D: true });
+      gsap.set(cards.slice(1), { yPercent: 120, rotate: 4, visibility: 'hidden' });
+      let currentCard = 0;
+      const timeline = gsap.timeline({
+        onUpdate() {
+          // Follow the displayed animation, including scrub lag and reverse scrolling.
+          const next = Math.min(cards.length - 1, Math.max(0, Math.floor(this.time() + .001)));
+          if (next !== currentCard) { currentCard = next; setActive(next); }
+        },
+        // Lenis already smooths scrolling; a second scrub delay makes the cards lag.
+        scrollTrigger: { trigger: gallery, start: 'top top', end: () => `+=${Math.max(500, window.innerHeight * .8) * (cards.length - 1)}`, pin: true, scrub: true, anticipatePin: 1, invalidateOnRefresh: true }
+      });
       cards.slice(1).forEach((card, i) => {
-        timeline.to(cards[i], { scale: .93, opacity: .28, duration: 1 }, i);
-        timeline.to(card, { yPercent: 0, rotate: 0, duration: 1, ease: 'power2.out' }, i);
+        const start = i;
+        timeline.set(card, { visibility: 'visible' }, start);
+        timeline.to(card, { yPercent: 0, rotate: 0, duration: 1, ease: 'none' }, start);
+        timeline.set(cards[i], { visibility: 'hidden' }, start + 1);
       });
       return () => { gallery.classList.remove('is-pinned'); setPinned(false); };
     }, scope);
@@ -41,7 +52,7 @@ export default function Projects({ onSelectProject }) {
     <div className={`work-gallery${pinned?' is-pinned':''}${view==='list'||filter!=='All work'?' work-list':''}`}>
       <div className="shell gallery-inner">
         <div className="work-gallery-top"><span>Selected projects</span><span>{String(active+1).padStart(2,'0')} / {String(shown.length).padStart(2,'0')}</span></div>
-        <div className="work-card-stack">{shown.map((project,index)=><article className="work-gallery-card" key={project.id} inert={pinned && index !== active}><div className="work-art"><ProjectVisual project={project}/><button className="art-open" onClick={()=>onSelectProject(project)} aria-label={`Explore ${project.title}`}><Icon name="arrow" size={24}/></button></div><div className="work-info"><div className="work-info-top"><span>{project.number} / {project.category}</span><span className={`project-status ${project.status.startsWith('Live')?'live':''}`}><i/>{project.status}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div><div className="project-metrics">{project.metrics.map(metric=><div key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></div>)}</div><div className="work-info-bottom"><Button onClick={()=>onSelectProject(project)} variant="secondary" icon="arrow">Explore project</Button>{project.links[0]&&<a href={project.links[0].href} target="_blank" rel="noopener noreferrer" className="subtle-link">{project.links[0].label}<Icon size={14}/></a>}</div></div></article>)}</div>
+        <div className="work-card-stack">{shown.map((project,index)=><article className="work-gallery-card" key={project.id} inert={pinned && index !== active}><div className="work-art"><ProjectVisual project={project}/><button className="art-open" onClick={()=>onSelectProject(project)} aria-label={`Explore ${project.title}`}><Icon name="arrow" size={24}/></button></div><div className="work-info" tabIndex={pinned && index === active ? 0 : undefined} aria-label="Project details"><div className="work-info-top"><span>{project.number} / {project.category}</span><span className={`project-status ${project.status.startsWith('Live')?'live':''}`}><i/>{project.status}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div><div className="project-metrics">{project.metrics.map(metric=><div key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></div>)}</div><div className="work-info-bottom"><Button onClick={()=>onSelectProject(project)} variant="secondary" icon="arrow">Explore project</Button>{project.links[0]&&<a href={project.links[0].href} target="_blank" rel="noopener noreferrer" className="subtle-link">{project.links[0].label}<Icon size={14}/></a>}</div></div></article>)}</div>
         <div className="gallery-bottom"><span>Classical ML → Deep Learning → LLMs → RAG → Agents</span><a href="#skills">Keep exploring <span>↓</span></a></div>
       </div>
     </div>
