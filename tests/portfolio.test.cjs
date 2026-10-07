@@ -157,6 +157,19 @@ test('animation setup renders at desktop width without runtime errors', async ()
   } finally { page.dom.window.close(); }
 });
 
+test('mobile and tablet use accessible unpinned project lists with all original links', async () => {
+  for (const width of [320, 768, 1024]) {
+    const page = await render({ width, reducedMotion: false });
+    try {
+      assert.equal(page.document.querySelector('.work-gallery.is-pinned'), null);
+      assert.equal(page.document.querySelectorAll('.work-gallery-card[inert]').length, 0);
+      assert.equal(page.document.querySelectorAll('.work-external-links a.demo-link').length, 2);
+      assert.equal(page.document.querySelectorAll('.work-gallery-card').length, 5);
+      assert.deepEqual(page.errors, []);
+    } finally { page.dom.window.close(); }
+  }
+});
+
 test('press-and-hold previews release cleanly and dragging does not open a dialog', async () => {
   const page = await render({ width: 768 });
   const { document: d, window: w, settle, errors } = page;

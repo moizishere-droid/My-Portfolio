@@ -350,3 +350,61 @@ body { font-size: 14px; }
   .project-editor .visual-body h3 { font-size: 24px; }
   .project-editor .editor-left, .project-editor .editor-right { display: none; }
 }
+/* Mobile and tablet layout corrections. */
+@media (max-width: 1200px) {
+  .shell > *, .work-info, .education-card, .skill-card, .resume-copy,
+  .about-copy, .footer-grid > div, .dialog-copy { min-width: 0; }
+  .work-info h3, .education-card h3, .dialog-copy h2 { overflow-wrap: anywhere; }
+  .contact-email, .footer-contact a, .footer-contact span { overflow-wrap: anywhere; }
+  .work-info-bottom { display: grid; grid-template-columns: 1fr; align-items: start; gap: 16px; }
+  .work-info-bottom > .button { justify-self: start; }
+  .work-external-links { width: 100%; justify-content: flex-start; gap: 8px 18px; }
+  .work-external-links .demo-status { flex-basis: 100%; order: 2; }
+  .work-external-links .subtle-link { min-height: 44px; }
+  .project-metrics { gap: 16px 20px; }
+  .project-tags > span { max-width: 100%; overflow-wrap: anywhere; }
+  .inline-buttons, .hero-buttons, .social-links { flex-wrap: wrap; }
+  .skill-item > div:first-child > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+  .accordion summary > span { min-width: 0; overflow-wrap: anywhere; }
+  .accordion summary > svg { flex-shrink: 0; }
+}
+@media (max-width: 900px) {
+  .resume-card { grid-template-columns: 1fr; }
+  .resume-paper { width: min(100%, 250px); justify-self: center; }
+  .about-copy { margin: 0; padding-inline: 0; }
+  .about-collage { pointer-events: none; }
+  .project-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
+  .resume-viewer iframe { width: 100%; height: 70dvh; }
+  .resume-viewer-header { flex-wrap: wrap; gap: 10px; }
+  .editor-topbar { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; }
+  .editor-view-controls { justify-content: center; min-width: 0; }
+  .project-editor .segmented { width: 110px; }
+  .project-editor .editor-dimensions { padding-inline: 8px; }
+  .project-editor .editor-dimensions > span { margin-inline: 6px; }
+}
+@media (max-width: 600px) {
+  .work-gallery-card, .work-list .work-gallery-card { width: 100%; min-width: 0; }
+  .work-info { padding: 22px; }
+  .project-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work-art .project-visual { min-height: 420px; max-height: none; }
+  .work-art .visual-body { min-width: 0; padding: 20px 16px; }
+  .work-art .visual-top { padding-inline: 16px; }
+  .visual-body h3 { overflow-wrap: anywhere; }
+  .metrics-strip { gap: 24px 16px; }
+  .footer-top { flex-wrap: wrap; gap: 18px; }
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-email { max-width: 100%; text-align: center; }
+  .dialog-copy { padding: 22px; }
+  .dialog-content > .project-visual { min-height: 420px; }
+  .project-editor .editor-bottom { height: auto; min-height: 42px; flex-wrap: wrap; gap: 8px; padding-block: 8px; }
+  .project-editor .editor-instructions { flex-wrap: wrap; gap: 6px; }
+  .project-editor .editor-bottom-controls { margin-left: auto; }
+  .hero .hero-badge { max-width: 100%; white-space: normal; }
+}
+@media (max-width: 480px) {
+  .project-editor .editor-dimensions { display: none; }
+  .project-editor .editor-topbar { padding-inline: 8px; }
+  .nav-actions { gap: 6px; }
+  .navigation.shell { gap: 8px; }
+  .education-card, .skill-card, .approach-card { padding: 22px; }
+}

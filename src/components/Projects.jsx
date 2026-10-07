@@ -17,7 +17,7 @@ export default function Projects({ onSelectProject }) {
   useLayoutEffect(() => {
     if (view !== 'gallery' || filter !== 'All work') return;
     const media = gsap.matchMedia();
-    media.add('(min-width: 901px) and (prefers-reduced-motion: no-preference)', () => {
+    media.add('(min-width: 1201px) and (prefers-reduced-motion: no-preference)', () => {
       const cards = gsap.utils.toArray('.work-gallery-card', scope.current);
       const gallery = scope.current.querySelector('.work-gallery');
       gallery.classList.add('is-pinned');
