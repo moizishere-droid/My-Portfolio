@@ -474,3 +474,15 @@ body { font-size: 14px; }
 @media (max-width: 900px) {
   .about-section .metrics-strip { margin-top: 52px; padding-top: 32px; }
 }
+
+/* Keep decorative cards inside the intro, above the statistics boundary. */
+.about-intro { position: relative; isolation: isolate; overflow: hidden; min-height: 540px; }
+.about-intro .about-collage { top: 20px; }
+.about-section .metrics-strip { margin-top: 36px; padding-top: 32px; }
+@media (max-width: 900px) {
+  .about-intro { min-height: 0; }
+  .about-section .metrics-strip { margin-top: 32px; padding-top: 28px; }
+}
+@media (max-width: 600px) {
+  .about-intro .about-collage { top: 0; }
+}
