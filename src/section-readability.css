@@ -313,3 +313,40 @@ body { font-size: 14px; }
 .work-external-links .demo-link { color: var(--blue-light); font-weight: 600; }
 .work-info-bottom { flex-wrap: wrap; }
 .demo-status { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* Compact hero project preview; scoped to avoid changing gallery or dialogs. */
+.project-editor .editor-viewport { height: 500px; }
+.project-editor .editor-shot { width: 580px; height: 540px; }
+.project-editor .editor-left, .project-editor .editor-right { width: 210px; }
+.project-editor .editor-topbar { height: 48px; padding-inline: 14px; }
+.project-editor .editor-tabs button, .project-editor .panel-title,
+.project-editor .property-group > span, .project-editor .editor-tree > p { font-size: 11px; }
+.project-editor .editor-tree > button, .project-editor .editor-tree > a,
+.project-editor .stack-item { font-size: 10px; padding-block: 9px; }
+.project-editor .property-group small, .project-editor .property-group b,
+.project-editor .editor-tree small, .project-editor .editor-panel-foot { font-size: 10px; }
+.project-editor .editor-dimensions, .project-editor .editor-bottom,
+.project-editor .editor-bottom-controls select, .project-editor .editor-instructions { font-size: 11px; }
+.project-editor .editor-bottom { height: 42px; }
+.project-editor .visual-body { padding: 24px; }
+.project-editor .visual-body h3 { font-size: 28px; }
+.project-editor .visual-description, .project-editor .chat-prompt,
+.project-editor .chat-answer { font-size: 11px; }
+.project-editor .visual-mark { font-size: 14px; }
+.project-editor .visual-online, .project-editor .visual-nav,
+.project-editor .visual-kicker, .project-editor .visual-stats small { font-size: 10px; }
+.project-editor .visual-stats strong { font-size: 24px; }
+.project-editor .shot-hint { font-size: 11px; }
+.project-editor.device-mobile .editor-shot { width: 280px; height: 480px; }
+.project-editor.device-mobile .visual-body h3 { font-size: 25px; }
+@media (max-width: 900px) {
+  .project-editor .editor-viewport { height: 440px; }
+  .project-editor .editor-left { width: 175px; }
+}
+@media (max-width: 600px) {
+  .project-editor .editor-viewport { height: 380px; }
+  .project-editor .editor-shot { width: 340px; height: 440px; }
+  .project-editor .visual-body { padding: 20px; }
+  .project-editor .visual-body h3 { font-size: 24px; }
+  .project-editor .editor-left, .project-editor .editor-right { display: none; }
+}
