@@ -8,19 +8,19 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   backdrop-filter: blur(18px);
 }
 .navigation.shell {
-  width: min(calc(100% - 80px), 1640px);
-  height: 96px;
-  gap: 24px;
+  width: min(calc(100% - 64px), 1440px);
+  height: 76px;
+  gap: 18px;
 }
-.scrolled .navigation { height: 88px; }
-.navigation .wordmark { font-size: 22px; gap: 10px; }
-.navigation .wordmark > svg { width: 36px; height: 32px; }
+.scrolled .navigation { height: 70px; }
+.navigation .wordmark { font-size: 20px; gap: 8px; }
+.navigation .wordmark > svg { width: 30px; height: 26px; }
 .brand-link { flex-shrink: 0; }
 .nav-menu { gap: 4px; }
 .nav-menu > a {
-  padding: 11px 14px;
+  padding: 8px 11px;
   border-radius: 100px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 550;
   line-height: 1.5;
   color: color-mix(in srgb, var(--fg) 90%, var(--bg));
@@ -31,11 +31,11 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   color: var(--fg);
   background: var(--surface2);
 }
-.nav-actions { gap: 14px; flex-shrink: 0; }
-.nav-connect { min-height: 46px; padding: 10px 20px; font-size: 14px; }
+.nav-actions { gap: 10px; flex-shrink: 0; }
+.nav-connect { min-height: 38px; padding: 8px 16px; font-size: 13px; }
 .navigation .theme-toggle {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--line-strong);
   border-radius: 50%;
   color: var(--fg);
@@ -81,10 +81,10 @@ section, .resume-viewer { scroll-margin-top: 112px; }
 
 /* Switch to a readable menu instead of shrinking desktop text to fit. */
 @media (max-width: 1360px) {
-  .navigation.shell { width: calc(100% - 48px); height: 88px; }
-  .scrolled .navigation { height: 80px; }
-  .navigation .wordmark { font-size: 24px; }
-  .navigation .wordmark > svg { width: 34px; height: 30px; }
+  .navigation.shell { width: calc(100% - 48px); height: 72px; }
+  .scrolled .navigation { height: 68px; }
+  .navigation .wordmark { font-size: 20px; }
+  .navigation .wordmark > svg { width: 30px; height: 26px; }
   .nav-menu {
     position: absolute;
     top: calc(100% - 1px);
@@ -98,11 +98,11 @@ section, .resume-viewer { scroll-margin-top: 112px; }
     background: var(--bg);
     border-bottom: 1px solid var(--line-strong);
     box-shadow: 0 20px 35px #0002;
-    max-height: calc(100svh - 88px);
+    max-height: calc(100svh - 72px);
     overflow-y: auto;
   }
   .nav-menu.is-open { display: flex; }
-  .nav-menu > a { font-size: 18px; padding: 12px 16px; border-radius: 8px; }
+  .nav-menu > a { font-size: 16px; padding: 10px 14px; border-radius: 8px; }
   .nav-menu .mobile-connect {
     display: flex !important;
     align-items: center;
@@ -133,10 +133,10 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   .hero .hero-badge { font-size: 14px; }
 }
 @media (max-width: 600px) {
-  .navigation.shell { width: calc(100% - 32px); height: 80px; gap: 12px; }
-  .scrolled .navigation { height: 72px; }
-  .navigation .wordmark { font-size: 20px; gap: 9px; }
-  .navigation .wordmark > svg { width: 31px; height: 28px; }
+  .navigation.shell { width: calc(100% - 32px); height: 68px; gap: 10px; }
+  .scrolled .navigation { height: 64px; }
+  .navigation .wordmark { font-size: 18px; gap: 7px; }
+  .navigation .wordmark > svg { width: 27px; height: 24px; }
   .nav-actions { gap: 8px; }
   .nav-connect { display: none; }
   .nav-menu { padding-inline: 16px; }
