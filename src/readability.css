@@ -1,0 +1,158 @@
+/* Larger navigation and explicit rolling-text geometry at every font size. */
+html { scroll-padding-top: 112px; }
+section, .resume-viewer { scroll-margin-top: 112px; }
+
+.site-header {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border-bottom-color: var(--line);
+  backdrop-filter: blur(18px);
+}
+.navigation.shell {
+  width: min(calc(100% - 80px), 1640px);
+  height: 112px;
+  gap: 24px;
+}
+.scrolled .navigation { height: 96px; }
+.navigation .wordmark { font-size: 34px; gap: 13px; }
+.navigation .wordmark > svg { width: 45px; height: 39px; }
+.brand-link { flex-shrink: 0; }
+.nav-menu { gap: 4px; }
+.nav-menu > a {
+  padding: 11px 14px;
+  border-radius: 100px;
+  font-size: 21px;
+  font-weight: 550;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--fg) 90%, var(--bg));
+  transition: color .2s, background .2s;
+}
+.nav-menu > a:hover,
+.nav-menu > a[aria-current='location'] {
+  color: var(--fg);
+  background: var(--surface2);
+}
+.nav-actions { gap: 14px; flex-shrink: 0; }
+.nav-connect { min-height: 54px; padding: 12px 24px; font-size: 18px; }
+.navigation .theme-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--fg);
+}
+.hero { padding-top: clamp(142px, 14vh, 164px); }
+.hero .hero-badge { font-size: 16px; padding: 10px 19px; }
+.hero-title { font-size: clamp(64px, 8.4vw, 124px); margin: 20px auto 24px; }
+.hero-subtitle { font-size: 23px; margin-bottom: 26px; }
+.hero-buttons { gap: 14px; margin-bottom: 40px; }
+.hero-buttons .button {
+  min-height: 58px;
+  padding: 13px 29px;
+  font-size: 19px;
+}
+
+/* Each letter has two full rows. Translate exactly one row, independent of
+   flex stretching, browser zoom, and fractional pixel rounding. */
+.roll {
+  display: inline-flex;
+  align-items: flex-start;
+  height: 1.5em;
+  line-height: 1.5;
+  overflow: hidden;
+}
+.roll-char {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  height: 3em;
+  min-height: 3em;
+  transform: translateY(0);
+  transition: transform .4s var(--ease);
+  transition-delay: calc(var(--i) * .01s);
+}
+.roll-char > span {
+  display: block;
+  flex: 0 0 1.5em;
+  height: 1.5em;
+  line-height: 1.5;
+}
+.button:hover .roll-char,
+.button:focus-visible .roll-char { transform: translateY(-1.5em); }
+
+/* Switch to a readable menu instead of shrinking desktop text to fit. */
+@media (max-width: 1360px) {
+  .navigation.shell { width: calc(100% - 48px); height: 88px; }
+  .scrolled .navigation { height: 80px; }
+  .navigation .wordmark { font-size: 30px; }
+  .navigation .wordmark > svg { width: 34px; height: 30px; }
+  .nav-menu {
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 18px 24px 28px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line-strong);
+    box-shadow: 0 20px 35px #0002;
+    max-height: calc(100svh - 88px);
+    overflow-y: auto;
+  }
+  .nav-menu.is-open { display: flex; }
+  .nav-menu > a { font-size: 23px; padding: 12px 16px; border-radius: 8px; }
+  .nav-menu .mobile-connect {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--fg);
+  }
+  .menu-toggle {
+    display: flex !important;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .menu-toggle span { width: 19px; height: 1px; background: var(--fg); transition: transform .3s; }
+  .menu-toggle.open span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .menu-toggle.open span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+}
+@media (max-width: 900px) {
+  .hero-title { font-size: clamp(48px, 9vw, 80px); }
+  .hero-subtitle { font-size: 20px; }
+  .hero .hero-badge { font-size: 14px; }
+}
+@media (max-width: 600px) {
+  .navigation.shell { width: calc(100% - 32px); height: 80px; gap: 12px; }
+  .scrolled .navigation { height: 72px; }
+  .navigation .wordmark { font-size: 25px; gap: 9px; }
+  .navigation .wordmark > svg { width: 31px; height: 28px; }
+  .nav-actions { gap: 8px; }
+  .nav-connect { display: none; }
+  .nav-menu { padding-inline: 16px; }
+  .hero { padding-top: 118px; }
+  .hero-title { font-size: clamp(34px, 9.5vw, 57px); margin: 20px auto; }
+  .hero .hero-badge { font-size: 11px; padding: 9px 12px; }
+  .hero-subtitle { font-size: 16px; margin-bottom: 22px; }
+  .hero-buttons { gap: 10px; margin-bottom: 30px; }
+  .hero-buttons .button { min-height: 50px; padding: 11px 20px; font-size: 15px; }
+}
+@media (hover: none) {
+  .button:hover .roll-char { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roll-char, .button:hover .roll-char, .button:focus-visible .roll-char {
+    transform: none !important;
+    transition: none;
+  }
+}
