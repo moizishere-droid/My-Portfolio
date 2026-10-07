@@ -486,3 +486,21 @@ body { font-size: 14px; }
 @media (max-width: 600px) {
   .about-intro .about-collage { top: 0; }
 }
+
+/* Keep the resume actions evenly aligned when they stack on mobile. */
+@media (max-width: 600px) {
+  .resume-copy .inline-buttons {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 16px;
+  }
+  .resume-copy .inline-buttons > .button {
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+    margin: 0;
+    padding: 14px 20px;
+  }
+}
+
