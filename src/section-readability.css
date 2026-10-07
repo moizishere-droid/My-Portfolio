@@ -2,114 +2,115 @@
 /* Comfortable reading sizes across the portfolio, including secondary labels. */
 :root { --muted: #b9b9c0; --subtle: #a0a0aa; }
 :root[data-theme='light'] { --muted: #48484f; --subtle: #606069; }
-body { font-size: 18px; }
+body { font-size: 14px; }
 .shell { width: min(calc(100% - 80px), 1552px); }
-.eyebrow { font-size: 16px; line-height: 1.5; }
-.display-heading { font-size: clamp(38px, 4.2vw, 58px); }
-.section-subtitle { font-size: 20px; line-height: 1.7; }
-.button { font-size: 17px; min-height: 52px; padding: 12px 23px; }
-.about-copy h2 { font-size: clamp(38px, 4vw, 56px); }
-.about-copy > p:not(.eyebrow) { font-size: 18px; line-height: 1.7; max-width: 620px; }
+.eyebrow { font-size: 14px; line-height: 1.5; }
+.display-heading { font-size: clamp(30px, 3.57vw, 46px); }
+.section-subtitle { font-size: 16px; line-height: 1.7; }
+.button { font-size: 14px; min-height: 52px; padding: 12px 23px; }
+.about-copy h2 { font-size: clamp(30px, 3.4vw, 45px); }
+.about-copy > p:not(.eyebrow) { font-size: 14px; line-height: 1.7; max-width: 620px; }
 .about-copy .inline-buttons { gap: 16px; }
 .about-layout { gap: 60px; }
 .metrics-strip { gap: 28px; }
-.metrics-strip strong { font-size: clamp(46px, 4.8vw, 70px); }
-.metrics-strip > div > span { font-size: 17px; line-height: 1.5; }
-.metric-unit { font-size: 25px; }
-.work-heading > p:last-of-type { font-size: 21px; }
-.work-filters button { font-size: 16px; padding: 11px 17px; }
-.view-toggle { font-size: 16px; min-height: 44px; }
+.metrics-strip strong { font-size: clamp(37px, 4.08vw, 56px); }
+.metrics-strip > div > span { font-size: 14px; line-height: 1.5; }
+.metric-unit { font-size: 20px; }
+.work-heading h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1.08; }
+.work-heading > p:last-of-type { font-size: 17px; }
+.work-filters button { font-size: 14px; padding: 11px 17px; }
+.view-toggle { font-size: 14px; min-height: 44px; }
 .work-toolbar { flex-wrap: wrap; }
-.work-gallery-top, .gallery-bottom { font-size: 15px; line-height: 1.6; }
+.work-gallery-top, .gallery-bottom { font-size: 14px; line-height: 1.6; }
 .work-gallery { padding-top: 120px; }
 .work-info { padding: 36px; }
-.work-info-top { font-size: 15px; gap: 14px; margin-bottom: 24px; }
+.work-info-top { font-size: 14px; gap: 14px; margin-bottom: 24px; }
 .project-status { font-size: 14px; line-height: 1.5; }
-.work-info h3 { font-size: clamp(30px, 3vw, 42px); max-width: none; }
-.work-info > p { font-size: 19px; line-height: 1.7; }
+.work-info h3 { font-size: clamp(24px, 2.55vw, 34px); max-width: none; }
+.work-info > p { font-size: 15px; line-height: 1.7; }
 .work-art .project-visual { min-height: 600px; max-height: none; }
 .project-tags { gap: 8px; }
 .project-tags > span { font-size: 14px; padding: 6px 10px; }
 .project-metrics { gap: 20px 26px; }
-.project-metrics strong { font-size: 22px; }
-.project-metrics > div > span { font-size: 15px; }
-.work-info-bottom .button { font-size: 17px; padding: 12px 23px; }
-.subtle-link { font-size: 17px; }
+.project-metrics strong { font-size: 18px; }
+.project-metrics > div > span { font-size: 14px; }
+.work-info-bottom .button { font-size: 14px; padding: 12px 23px; }
+.subtle-link { font-size: 14px; }
 .work-gallery:not(.is-pinned) { height: auto; min-height: 0; padding-top: 16px; overflow: visible; }
 .work-gallery:not(.is-pinned) .work-card-stack { display: grid; gap: 36px; }
 .work-gallery:not(.is-pinned) .work-gallery-card { position: relative; min-height: 660px; }
 .work-gallery.is-pinned { height: 100svh; min-height: 0; }
 .work-list .work-gallery-card { min-height: 660px; }
-.skills-heading-row > div:last-child > p { font-size: 20px; line-height: 1.65; }
+.skills-heading-row > div:last-child > p { font-size: 16px; line-height: 1.65; }
 .skills-grid { gap: 24px; }
 .skill-card { padding: 34px; }
-.card-index { font-size: 15px; }
-.skill-card h3 { font-size: 34px; }
+.card-index { font-size: 14px; }
+.skill-card h3 { font-size: 27px; }
 .skill-items { gap: 20px; }
-.skill-item > div:first-child { font-size: 18px; gap: 16px; line-height: 1.5; }
-.skill-item > div:first-child > span:last-child { font-size: 15px; padding-top: 3px; flex-shrink: 0; }
+.skill-item > div:first-child { font-size: 14px; gap: 16px; line-height: 1.5; }
+.skill-item > div:first-child > span:last-child { font-size: 14px; padding-top: 3px; flex-shrink: 0; }
 .skill-meter { height: 3px; margin-top: 10px; }
-.platform-strip h3 { font-size: 44px; }
-.platform-strip p { font-size: 19px; line-height: 1.7; }
-.platform-names span { font-size: 26px; }
+.platform-strip h3 { font-size: 35px; }
+.platform-strip p { font-size: 15px; line-height: 1.7; }
+.platform-names span { font-size: 21px; }
 .education-card { padding: 40px; }
-.education-card-top { font-size: 17px; }
-.education-card h3 { font-size: 43px; }
-.education-card > p { font-size: 19px; line-height: 1.75; max-width: none; }
-.education-org { font-size: 19px !important; }
-.education-stat strong { font-size: 76px; }
-.education-stat span { font-size: 16px; }
+.education-card-top { font-size: 14px; }
+.education-card h3 { font-size: 34px; }
+.education-card > p { font-size: 15px; line-height: 1.75; max-width: none; }
+.education-org { font-size: 15px !important; }
+.education-stat strong { font-size: 61px; }
+.education-stat span { font-size: 14px; }
 .approach-heading { flex-wrap: wrap; }
-.approach-heading h3 { font-size: 40px; }
-.approach-heading p { font-size: 18px; }
+.approach-heading h3 { font-size: 32px; }
+.approach-heading p { font-size: 14px; }
 .approach-grid { gap: 24px; }
 .approach-card { padding: 32px; min-height: 290px; }
-.approach-card > span { font-size: 15px; }
-.approach-card h4 { font-size: 34px; }
-.approach-card p { font-size: 18px; line-height: 1.7; max-width: none; }
-.resume-copy h2 { font-size: clamp(44px, 4.8vw, 68px); }
-.resume-copy > p:not(.eyebrow) { font-size: 20px; line-height: 1.7; }
-.resume-copy .button { font-size: 17px; padding: 12px 23px; }
-.resume-viewer-header, .resume-viewer > p { font-size: 17px; }
+.approach-card > span { font-size: 14px; }
+.approach-card h4 { font-size: 27px; }
+.approach-card p { font-size: 14px; line-height: 1.7; max-width: none; }
+.resume-copy h2 { font-size: clamp(35px, 4.08vw, 54px); }
+.resume-copy > p:not(.eyebrow) { font-size: 16px; line-height: 1.7; }
+.resume-copy .button { font-size: 14px; padding: 12px 23px; }
+.resume-viewer-header, .resume-viewer > p { font-size: 14px; }
 .resume-paper { max-width: 340px; }
-.resume-paper > div > span { font-size: 24px; }
+.resume-paper > div > span { font-size: 19px; }
 .resume-paper small { font-size: 11px; }
 .resume-paper > p { font-size: 10px; }
-.accordion summary, .practice-section .accordion summary { font-size: 20px; padding-block: 26px; }
+.accordion summary, .practice-section .accordion summary { font-size: 16px; padding-block: 26px; }
 .accordion summary svg { width: 23px; height: 23px; }
-.accordion-content { font-size: 19px; line-height: 1.75; }
-.faq-layout .display-heading { font-size: clamp(44px, 4.8vw, 68px); }
-.contact-content h2 { font-size: clamp(60px, 7.4vw, 106px); }
-.contact-content > .hero-badge { font-size: 16px; padding: 11px 18px; }
-.contact-content > p:not(.hero-badge) { font-size: 21px; line-height: 1.7; }
-.contact-email { font-size: 20px; color: var(--fg); }
+.accordion-content { font-size: 15px; line-height: 1.75; }
+.faq-layout .display-heading { font-size: clamp(35px, 4.08vw, 54px); }
+.contact-content h2 { font-size: clamp(48px, 6.29vw, 85px); }
+.contact-content > .hero-badge { font-size: 14px; padding: 11px 18px; }
+.contact-content > p:not(.hero-badge) { font-size: 17px; line-height: 1.7; }
+.contact-email { font-size: 16px; color: var(--fg); }
 .copy-email { width: 44px; height: 44px; }
 .social-links { gap: 34px; }
-.social-links > a { font-size: 18px; padding-block: 10px; }
+.social-links > a { font-size: 14px; padding-block: 10px; }
 .site-footer { padding-top: 58px; }
-.footer-top .wordmark { font-size: 32px; }
+.footer-top .wordmark { font-size: 26px; }
 .footer-top .wordmark > svg { width: 40px; height: 34px; }
-.footer-top p { font-size: 18px; line-height: 1.6; }
-.back-top { font-size: 17px; padding-block: 12px; }
+.footer-top p { font-size: 14px; line-height: 1.6; }
+.back-top { font-size: 14px; padding-block: 12px; }
 .footer-grid { grid-template-columns: 1fr 1.1fr 1fr 1.6fr; gap: 35px; padding-block: 48px; }
 .footer-grid > div { gap: 14px; min-width: 0; }
-.footer-grid h3 { font-size: 18px; font-weight: 500; color: var(--fg); margin-bottom: 12px; }
-.footer-grid a, .footer-grid span { font-size: 17px; line-height: 1.6; }
-.footer-bottom { font-size: 15px; padding-block: 25px; }
+.footer-grid h3 { font-size: 14px; font-weight: 500; color: var(--fg); margin-bottom: 12px; }
+.footer-grid a, .footer-grid span { font-size: 14px; line-height: 1.6; }
+.footer-bottom { font-size: 14px; padding-block: 25px; }
 .project-dialog { max-width: 1020px; }
-.dialog-header { font-size: 16px; }
-.dialog-copy h2 { font-size: 54px; }
-.dialog-copy > p:not(.eyebrow) { font-size: 20px; line-height: 1.75; }
-.dialog-copy .button { font-size: 17px; }
-.practice-section > h3 { font-size: 27px; }
-.practice-label { font-size: 16px; }
+.dialog-header { font-size: 14px; }
+.dialog-copy h2 { font-size: 43px; }
+.dialog-copy > p:not(.eyebrow) { font-size: 16px; line-height: 1.75; }
+.dialog-copy .button { font-size: 14px; }
+.practice-section > h3 { font-size: 22px; }
+.practice-label { font-size: 14px; }
 
 /* Editor controls and text inside the original interface illustrations. */
 .editor-viewport { height: 730px; }
 .editor-shot { height: 770px; width: 720px; }
 .editor-left, .editor-right { width: 270px; }
-.editor-tabs button, .panel-title, .property-group > span { font-size: 15px; }
-.editor-tree > p { font-size: 15px; }
+.editor-tabs button, .panel-title, .property-group > span { font-size: 14px; }
+.editor-tree > p { font-size: 14px; }
 .editor-tree > button, .editor-tree > a, .stack-item { font-size: 13px; padding-block: 12px; }
 .editor-tree small, .editor-panel-foot { font-size: 12px; }
 .property-group small { font-size: 13px; }
@@ -119,16 +120,16 @@ body { font-size: 18px; }
 .editor-bottom-controls select { font-size: 14px; }
 .editor-instructions { font-size: 13px; }
 .shot-hint { font-size: 14px; }
-.visual-mark { font-size: 18px; }
+.visual-mark { font-size: 14px; }
 .visual-online { font-size: 12px; }
 .visual-nav { font-size: 12px; }
 .sidebar-bottom { font-size: 11px; }
 .sidebar-bottom small { font-size: 10px; }
 .visual-kicker { font-size: 12px; opacity: .8; }
-:is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-body h3 { font-size: 40px; }
+:is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-body h3 { font-size: 32px; }
 :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-description { font-size: 14px; opacity: .85; }
 .visual-stats small { font-size: 12px; opacity: .8; }
-:is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-stats strong { font-size: 30px; }
+:is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-stats strong { font-size: 24px; }
 .chart-header, .result-row { font-size: 12px; }
 .chart-header small, .chart-axis { font-size: 11px; opacity: .8; }
 :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-footer-line { font-size: 11px; opacity: .8; flex-wrap: wrap; }
@@ -139,13 +140,13 @@ body { font-size: 18px; }
 .response-meta, .language-list > span { font-size: 12px; }
 :is(.editor-shot, .work-art, .dialog-content > .project-visual) .chat-input { font-size: 13px; }
 .network-node { font-size: 12px; }
-.network-center { font-size: 16px; }
+.network-center { font-size: 14px; }
 :is(.editor-shot, .work-art, .dialog-content > .project-visual) .agent-workers > span { font-size: 13px; }
 :is(.editor-shot, .work-art, .dialog-content > .project-visual) .agent-workers small { font-size: 11px; }
-.flow-goal, .flow-supervisor { font-size: 15px; }
+.flow-goal, .flow-supervisor { font-size: 14px; }
 .decision-tree { font-size: 14px; }
 .tree-leaves span { font-size: 13px; }
-.token-cloud > span { font-size: 15px; }
+.token-cloud > span { font-size: 14px; }
 .terminal-art code { font-size: 14px; }
 .terminal-art small { font-size: 12px; }
 .terminal-art { width: 290px; }
@@ -157,14 +158,14 @@ body { font-size: 18px; }
   .skills-heading-row { align-items: start; }
   .skill-card { padding: 30px; }
   .about-layout { gap: 35px; }
-  .about-copy > p:not(.eyebrow) { font-size: 20px; }
+  .about-copy > p:not(.eyebrow) { font-size: 16px; }
   .work-info { padding: 30px; }
-  .work-info h3 { font-size: 40px; }
+  .work-info h3 { font-size: 32px; }
   .work-art .visual-sidebar { display: none; }
   .work-art .project-visual { max-height: none; min-height: 580px; }
   .education-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .education-card { padding: 30px; }
-  .education-card h3 { font-size: 36px; }
+  .education-card h3 { font-size: 29px; }
   .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .footer-contact { grid-column: 1 / -1; }
   .editor-left, .editor-right { width: 240px; }
@@ -174,8 +175,8 @@ body { font-size: 18px; }
   .work-art { padding: 34px; }
   .work-art .project-visual { width: min(100%, 640px); }
   .work-gallery:not(.is-pinned) .work-gallery-card { min-height: 0; }
-  .work-info h3 { font-size: 44px; }
-  .work-info > p { font-size: 20px; }
+  .work-info h3 { font-size: 35px; }
+  .work-info > p { font-size: 16px; }
   .about-copy { max-width: 660px; }
   .about-collage { opacity: .3; }
   .metrics-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 35px; }
@@ -193,73 +194,73 @@ body { font-size: 18px; }
 }
 @media (max-width: 600px) {
   .shell { width: calc(100% - 32px); }
-  body { font-size: 17px; }
+  body { font-size: 14px; }
   .eyebrow { font-size: 14px; }
-  .display-heading, .about-copy h2, .faq-layout .display-heading { font-size: clamp(36px, 9vw, 48px); }
-  .about-copy > p:not(.eyebrow) { font-size: 18px; }
+  .display-heading, .about-copy h2, .faq-layout .display-heading { font-size: clamp(29px, 7.65vw, 38px); }
+  .about-copy > p:not(.eyebrow) { font-size: 14px; }
   .about-collage { opacity: .75; }
-  .button, .resume-copy .button, .work-info-bottom .button, .dialog-copy .button { font-size: 16px; padding: 11px 19px; }
-  .metrics-strip > div > span { font-size: 15px; }
-  .metrics-strip strong { font-size: 45px; }
-  .metric-unit { font-size: 18px; }
-  .work-heading > p:last-of-type { font-size: 18px; }
+  .button, .resume-copy .button, .work-info-bottom .button, .dialog-copy .button { font-size: 14px; padding: 11px 19px; }
+  .metrics-strip > div > span { font-size: 14px; }
+  .metrics-strip strong { font-size: 36px; }
+  .metric-unit { font-size: 14px; }
+  .work-heading > p:last-of-type { font-size: 14px; }
   .work-filters button { font-size: 14px; padding: 10px 13px; }
   .work-gallery-top, .gallery-bottom { font-size: 14px; }
   .work-info { padding: 25px; }
-  .work-info h3 { font-size: 36px; }
-  .work-info > p { font-size: 18px; }
+  .work-info h3 { font-size: 29px; }
+  .work-info > p { font-size: 14px; }
   .work-info-top { font-size: 14px; flex-direction: column; align-items: start; }
   .project-status { font-size: 13px; }
   .project-tags > span { font-size: 13px; }
-  .project-metrics strong { font-size: 21px; }
+  .project-metrics strong { font-size: 17px; }
   .project-metrics > div > span { font-size: 14px; }
   .work-art { padding: 20px; }
   .work-art .project-visual { min-height: 560px; }
   .skills-grid, .approach-grid { grid-template-columns: 1fr; }
   .skill-card { padding: 28px; }
-  .skill-card h3 { font-size: 32px; }
-  .skill-item > div:first-child { font-size: 17px; }
+  .skill-card h3 { font-size: 26px; }
+  .skill-item > div:first-child { font-size: 14px; }
   .skill-item > div:first-child > span:last-child { font-size: 14px; }
-  .skills-heading-row > div:last-child > p { font-size: 18px; }
-  .platform-strip h3 { font-size: 36px; }
-  .platform-strip p { font-size: 18px; }
-  .platform-names span { font-size: 23px; }
+  .skills-heading-row > div:last-child > p { font-size: 14px; }
+  .platform-strip h3 { font-size: 29px; }
+  .platform-strip p { font-size: 14px; }
+  .platform-names span { font-size: 18px; }
   .education-card { padding: 28px; }
-  .education-card h3 { font-size: 33px; }
-  .education-card > p { font-size: 18px; }
-  .education-org { font-size: 18px !important; }
-  .education-card-top { font-size: 16px; }
-  .education-stat span { font-size: 15px; }
+  .education-card h3 { font-size: 26px; }
+  .education-card > p { font-size: 14px; }
+  .education-org { font-size: 14px !important; }
+  .education-card-top { font-size: 14px; }
+  .education-stat span { font-size: 14px; }
   .approach-card { min-height: 250px; padding: 28px; }
-  .approach-heading h3 { font-size: 34px; }
-  .approach-heading p, .approach-card p { font-size: 18px; }
+  .approach-heading h3 { font-size: 27px; }
+  .approach-heading p, .approach-card p { font-size: 14px; }
   .resume-card { grid-template-columns: 1fr; padding: 40px 26px; }
-  .resume-copy h2 { font-size: 42px; }
-  .resume-copy > p:not(.eyebrow) { font-size: 18px; }
+  .resume-copy h2 { font-size: 34px; }
+  .resume-copy > p:not(.eyebrow) { font-size: 14px; }
   .resume-paper { max-width: 250px; }
-  .resume-viewer-header, .resume-viewer > p { font-size: 16px; }
-  .accordion summary, .practice-section .accordion summary { font-size: 18px; }
-  .accordion-content { font-size: 17px; }
+  .resume-viewer-header, .resume-viewer > p { font-size: 14px; }
+  .accordion summary, .practice-section .accordion summary { font-size: 14px; }
+  .accordion-content { font-size: 14px; }
   .contact-content > .hero-badge { font-size: 13px; flex-wrap: wrap; justify-content: center; }
-  .contact-content > p:not(.hero-badge) { font-size: 18px; }
-  .contact-content h2 { font-size: clamp(44px, 11vw, 64px); }
-  .contact-email { font-size: 17px; }
-  .social-links > a { font-size: 17px; }
+  .contact-content > p:not(.hero-badge) { font-size: 14px; }
+  .contact-content h2 { font-size: clamp(35px, 9.35vw, 51px); }
+  .contact-email { font-size: 14px; }
+  .social-links > a { font-size: 14px; }
   .social-links { gap: 22px; }
-  .footer-top .wordmark { font-size: 29px; }
-  .footer-top p { font-size: 16px; margin: 0; display: block; }
+  .footer-top .wordmark { font-size: 23px; }
+  .footer-top p { font-size: 14px; margin: 0; display: block; }
   .footer-top { align-items: start; }
-  .back-top { font-size: 16px; }
+  .back-top { font-size: 14px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
-  .footer-grid h3 { font-size: 18px; }
-  .footer-grid a, .footer-grid span { font-size: 16px; }
+  .footer-grid h3 { font-size: 14px; }
+  .footer-grid a, .footer-grid span { font-size: 14px; }
   .footer-contact { grid-column: 1 / -1; }
   .footer-bottom { font-size: 14px; flex-direction: column; gap: 10px; }
   .footer-bottom > span:last-child { text-align: left; }
   .dialog-header { font-size: 14px; }
-  .dialog-copy h2 { font-size: 36px; }
-  .dialog-copy > p:not(.eyebrow) { font-size: 18px; }
-  .practice-section > h3 { font-size: 23px; }
+  .dialog-copy h2 { font-size: 29px; }
+  .dialog-copy > p:not(.eyebrow) { font-size: 14px; }
+  .practice-section > h3 { font-size: 18px; }
   .editor-left { width: 175px; }
   .editor-tabs button { font-size: 12px; padding-inline: 7px; }
   .editor-tree > p { font-size: 13px; }
@@ -272,10 +273,10 @@ body { font-size: 18px; }
   .device-mobile .editor-shot { width: 300px; height: 700px; }
   .editor-shot .visual-body { padding: 24px; }
   .visual-stats small { font-size: 11px; }
-  :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-body h3 { font-size: 32px; }
+  :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-body h3 { font-size: 26px; }
   :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-description { font-size: 13px; }
-  :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-stats strong { font-size: 25px; }
-  :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-stats.three strong { font-size: 21px; }
+  :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-stats strong { font-size: 20px; }
+  :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-stats.three strong { font-size: 17px; }
   :is(.editor-shot, .work-art, .dialog-content > .project-visual) .visual-footer-line { font-size: 11px; }
   :is(.editor-shot, .work-art, .dialog-content > .project-visual) .code-snippet { font-size: 11px; }
   .visual-stats.three { gap: 5px; }
@@ -292,12 +293,12 @@ body { font-size: 18px; }
   .work-gallery.is-pinned .work-info { min-height: 0; overflow: hidden; padding: clamp(18px, 3vh, 30px); }
   .work-gallery.is-pinned .work-info-top { font-size: 13px; margin-bottom: 14px; }
   .work-gallery.is-pinned .project-status { font-size: 12px; }
-  .work-gallery.is-pinned .work-info h3 { font-size: clamp(28px, 4.5vh, 42px); margin-bottom: 14px; }
-  .work-gallery.is-pinned .work-info > p { font-size: clamp(14px, 1.9vh, 17px); line-height: 1.5; margin-bottom: 14px; }
+  .work-gallery.is-pinned .work-info h3 { font-size: clamp(22px, 4.5vh, 34px); margin-bottom: 14px; }
+  .work-gallery.is-pinned .work-info > p { font-size: clamp(14px, 1.9vh, 14px); line-height: 1.5; margin-bottom: 14px; }
   .work-gallery.is-pinned .project-tags { gap: 5px; }
   .work-gallery.is-pinned .project-tags > span { font-size: 11px; padding: 3px 6px; }
   .work-gallery.is-pinned .project-metrics { margin-top: 16px; padding-top: 14px; gap: 12px 20px; }
-  .work-gallery.is-pinned .project-metrics strong { font-size: 19px; }
+  .work-gallery.is-pinned .project-metrics strong { font-size: 15px; }
   .work-gallery.is-pinned .project-metrics > div > span { font-size: 12px; }
   .work-gallery.is-pinned .work-info-bottom { padding-top: 16px; }
   .work-gallery.is-pinned .work-info-bottom .button { min-height: 42px; font-size: 14px; padding: 9px 16px; }
