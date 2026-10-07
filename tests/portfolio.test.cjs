@@ -79,6 +79,8 @@ test('filters work, opens projects and exposes original practice details and lin
   const { document: d, settle, errors } = page;
   try {
     assert.equal(d.querySelectorAll('.work-gallery-card').length, 5);
+    assert.equal(d.querySelectorAll('.work-external-links a.demo-link').length, 2);
+    assert.ok(d.querySelector('.work-external-links a[href="https://abdulmoiz123-loan-risk-app.hf.space"]'));
     const filter = [...d.querySelectorAll('.work-filters button')].find(el => el.textContent === 'LLM Fine-tuning');
     filter.click(); await settle();
     assert.equal(d.querySelectorAll('.work-gallery-card').length, 1);
@@ -88,6 +90,7 @@ test('filters work, opens projects and exposes original practice details and lin
     assert.match(d.querySelector('#dialog-project-title').textContent, /CodeMentor/);
     assert.equal(d.querySelectorAll('.practice-section details').length, 4);
     assert.ok(d.querySelector('dialog a[href="https://abdulmoiz123-codementor-llm-combined.hf.space"]'));
+    assert.ok(d.querySelector('dialog a.button-primary[href="https://abdulmoiz123-codementor-llm-combined.hf.space"]'));
     d.querySelector('[aria-label="Close project"]').click(); await settle();
     assert.equal(d.querySelector('dialog').open, false);
     assert.equal(d.body.style.overflow, '');

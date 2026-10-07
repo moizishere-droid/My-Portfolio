@@ -307,3 +307,7 @@ body { font-size: 18px; }
   .work-gallery.is-pinned .work-gallery-card { box-shadow: none; }
   .work-gallery.is-pinned .work-art .project-visual { min-height: 0; max-height: 100%; }
 }
+.work-external-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px 16px; }
+.work-external-links .subtle-link { white-space: nowrap; }
+.work-external-links .demo-link { color: var(--blue-light); font-weight: 600; }
+.work-info-bottom { flex-wrap: wrap; }
