@@ -6,7 +6,7 @@ const faqs = [
   ['What kind of opportunities are you looking for?', 'I’m open to AI/ML internships, research roles, and freelance projects. I’m targeting roles from 2027.'],
   ['Where are you based?', 'I’m based in Karachi, Pakistan, and I’m open to remote work.'],
   ['What do you build?', 'Classical ML systems, deep learning applications, fine-tuned LLMs, multilingual multimodal RAG pipelines, and agentic AI systems.'],
-  ['Can I try your projects?', 'Yes. The Loan Risk Assessment System and CodeMentor-LLM have live demos on HuggingFace Spaces. Open a project to find its demo, source code, model, and API links. MedRAG is in development and the Agentic AI System is in planning.'],
+  ['Can I try your projects?', 'Loan Risk and CodeMentor have live demos. Each project includes its available demo, code, model, and API links.'],
 ];
 
 export default function Contact() {

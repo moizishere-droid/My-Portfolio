@@ -544,6 +544,13 @@ export const education = [
     "description": "Systematic study across 5 domains: Classical ML → Deep Learning → LLM Fine-tuning → RAG Systems → Agentic AI. All production projects follow a 20+ phase methodology: experiment in notebooks, then refactor to documented production code with full deployment."
   }
 ];
+export const projectSummaries = {
+  'loan-risk': 'Predicts loan approval, interest rates, and borrower segments, with SHAP explanations and a deployed FastAPI backend.',
+  'cat-dog': 'An EfficientNetV2L image classifier with 95% validation accuracy, trained with transfer learning and data augmentation.',
+  'codementor': 'A coding assistant built by fine-tuning Llama 3.2 with SFT and DPO, deployed on HuggingFace Spaces.',
+  'medrag': 'A medical RAG system connecting PubMed, WHO, and OpenFDA across six languages, with text, image, and table retrieval.',
+  'agentic-ai': 'A planned multi-agent system for coordinating research, analysis, and coding tasks.',
+};
 export const email = 'abdulmoiz.aiml.dev@gmail.com';
 export const socials = [
   { label: 'GitHub', href: 'https://github.com/moizishere-droid' },

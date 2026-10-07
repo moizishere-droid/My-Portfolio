@@ -463,3 +463,14 @@ body { font-size: 14px; }
   .skills-section.section-pad { padding-bottom: 12px; }
   .education-section.section-pad { padding-top: 24px; }
 }
+/* Add breathing room only between the hero preview and About. */
+.hero + .about-section { margin-top: 32px; }
+@media (max-width: 600px) {
+  .hero + .about-section { margin-top: 24px; }
+}
+
+/* Separate the About collage from its statistics row. */
+.about-section .metrics-strip { margin-top: 72px; padding-top: 38px; }
+@media (max-width: 900px) {
+  .about-section .metrics-strip { margin-top: 52px; padding-top: 32px; }
+}
