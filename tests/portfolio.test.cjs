@@ -17,7 +17,7 @@ async function render({ width = 1440, height = 900, cardHeight = 0, reducedMotio
     virtualConsole: console,
   });
   const { window } = dom;
-  Object.defineProperty(window, 'innerWidth', { value: width });
+  Object.defineProperty(window, 'innerWidth', { value: width, writable: true });
   Object.defineProperty(window, 'innerHeight', { value: height });
   Object.defineProperty(window.HTMLElement.prototype, 'offsetHeight', { configurable: true, get() { return this.classList.contains('work-gallery-card') ? cardHeight : 0; } });
   window.matchMedia = query => ({
@@ -157,6 +157,24 @@ test('animation setup renders at desktop width without runtime errors', async ()
     assert.equal(page.document.querySelector('.work-gallery.is-pinned'), null);
     assert.equal(page.document.querySelectorAll('.work-gallery-card[inert]').length, 0);
     assert.equal(page.document.querySelectorAll('.work-gallery-card')[1].style.visibility, '');
+    assert.deepEqual(page.errors, []);
+  } finally { page.dom.window.close(); }
+});
+
+test('preview follows resizing and orientation changes after loading', async () => {
+  const page = await render({ width: 1440 });
+  const { document: d, window: w, settle } = page;
+  try {
+    w.innerWidth = 338;
+    w.dispatchEvent(new w.Event('resize')); await settle();
+    assert.equal(d.querySelector('[aria-label="Mobile preview"]').getAttribute('aria-pressed'), 'true');
+    d.querySelector('[aria-label="Desktop preview"]').click(); await settle();
+    w.innerWidth = 360;
+    w.dispatchEvent(new w.Event('resize')); await settle();
+    assert.equal(d.querySelector('[aria-label="Mobile preview"]').getAttribute('aria-pressed'), 'true');
+    w.innerWidth = 1024;
+    w.dispatchEvent(new w.Event('orientationchange')); await settle();
+    assert.equal(d.querySelector('[aria-label="Desktop preview"]').getAttribute('aria-pressed'), 'true');
     assert.deepEqual(page.errors, []);
   } finally { page.dom.window.close(); }
 });

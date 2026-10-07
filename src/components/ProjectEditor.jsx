@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { projects } from '../data/portfolio';
 import { Icon, Wordmark } from './ui';
 import ProjectVisual from './ProjectVisual';
 
+const getScreenDevice = () => window.innerWidth <= 767 ? 'mobile' : 'desktop';
+
 export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
   const [panels, setPanels] = useState(true);
-  const [device, setDevice] = useState(() => window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop');
+  const [device, setDevice] = useState(getScreenDevice);
   const [paused, setPaused] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [tab, setTab] = useState('Projects');
@@ -24,11 +26,24 @@ export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
   speedRef.current = speed;
   pauseRef.current = paused || active !== null || held !== null;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const screen = window.matchMedia('(max-width: 767px)');
-    const updateDevice = event => setDevice(event.matches ? 'mobile' : 'desktop');
+    let lastWidth = window.innerWidth;
+    setDevice(getScreenDevice());
+    const updateDevice = () => {
+      // Ignore synthetic resize events that do not change the screen width.
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      setDevice(getScreenDevice());
+    };
     screen.addEventListener('change', updateDevice);
-    return () => screen.removeEventListener('change', updateDevice);
+    window.addEventListener('resize', updateDevice);
+    window.addEventListener('orientationchange', updateDevice);
+    return () => {
+      screen.removeEventListener('change', updateDevice);
+      window.removeEventListener('resize', updateDevice);
+      window.removeEventListener('orientationchange', updateDevice);
+    };
   }, []);
   useEffect(() => {
     const observer = new ResizeObserver(entries => setWidth(Math.round(entries[0].contentRect.width)));
