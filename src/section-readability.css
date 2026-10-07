@@ -358,9 +358,10 @@ body { font-size: 14px; }
   .contact-email, .footer-contact a, .footer-contact span { overflow-wrap: anywhere; }
   .work-info-bottom { display: grid; grid-template-columns: 1fr; align-items: start; gap: 16px; }
   .work-info-bottom > .button { justify-self: start; }
-  .work-external-links { width: 100%; justify-content: flex-start; gap: 8px 18px; }
-  .work-external-links .demo-status { flex-basis: 100%; order: 2; }
-  .work-external-links .subtle-link { min-height: 44px; }
+  .work-external-links { display: grid; width: 100%; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .work-external-links .demo-status { grid-column: 1 / -1; order: 2; text-align: left; }
+  .work-external-links .subtle-link { min-height: 44px; min-width: 0; white-space: normal; overflow-wrap: anywhere; justify-content: space-between; padding: 9px 12px; border: 1px solid var(--line-strong); border-radius: 8px; }
+  .work-external-links .subtle-link svg { flex-shrink: 0; }
   .project-metrics { gap: 16px 20px; }
   .project-tags > span { max-width: 100%; overflow-wrap: anywhere; }
   .inline-buttons, .hero-buttons, .social-links { flex-wrap: wrap; }
@@ -386,6 +387,10 @@ body { font-size: 14px; }
   .work-gallery-card, .work-list .work-gallery-card { width: 100%; min-width: 0; }
   .work-info { padding: 22px; }
   .project-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-metrics > div { min-width: 0; }
+  .project-metrics strong { font-size: 16px; overflow-wrap: anywhere; }
+  .project-metrics > div > span { overflow-wrap: anywhere; }
+  .work-info-bottom > .button { width: 100%; justify-content: center; }
   .work-art .project-visual { min-height: 420px; max-height: none; }
   .work-art .visual-body { min-width: 0; padding: 20px 16px; }
   .work-art .visual-top { padding-inline: 16px; }
