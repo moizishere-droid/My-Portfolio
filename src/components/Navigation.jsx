@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button, Icon, Wordmark } from './ui';
 
 const links = [['Home', 'hero'], ['About', 'about'], ['Work', 'projects'], ['Expertise', 'skills'], ['Background', 'education'], ['Resume', 'resume']];
@@ -7,17 +7,47 @@ export default function Navigation({ theme, toggleTheme }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('hero');
+  const destination = useRef(null);
+  const selectSection = id => {
+    destination.current = { id, expires: Date.now() + 2500 };
+    setOpen(false);
+    setActive(id);
+  };
   useEffect(() => {
     const update = () => {
       setScrolled(window.scrollY > 30);
+      const selected = destination.current;
+      if (selected) {
+        const top = document.getElementById(selected.id)?.getBoundingClientRect().top;
+        if (Date.now() < selected.expires && top > 150) {
+          setActive(selected.id);
+          return;
+        }
+        destination.current = null;
+      }
       let current = 'hero';
       for (const [, id] of links) {
         if (document.getElementById(id)?.getBoundingClientRect().top <= 150) current = id;
       }
       setActive(current);
     };
-    update(); window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
+    const syncHash = () => {
+      const id = window.location.hash.slice(1);
+      if (links.some(([, target]) => target === id)) selectSection(id);
+    };
+    const cancelDestination = () => { destination.current = null; };
+    update();
+    syncHash();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('hashchange', syncHash);
+    window.addEventListener('wheel', cancelDestination, { passive: true });
+    window.addEventListener('touchstart', cancelDestination, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('hashchange', syncHash);
+      window.removeEventListener('wheel', cancelDestination);
+      window.removeEventListener('touchstart', cancelDestination);
+    };
   }, []);
   useEffect(() => {
     if (!open) return;
@@ -27,9 +57,9 @@ export default function Navigation({ theme, toggleTheme }) {
   }, [open]);
   return <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
     <nav className="navigation shell" aria-label="Main navigation">
-      <a className="brand-link" href="#hero" aria-label="Abdul Moiz home" onClick={() => setOpen(false)}><Wordmark /></a>
+      <a className="brand-link" href="#hero" aria-label="Abdul Moiz home" onClick={() => selectSection('hero')}><Wordmark /></a>
       <div className={`nav-menu${open ? ' is-open' : ''}`} id="navigation-menu">
-        {links.map(([label, id]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined} onClick={() => { setOpen(false); setActive(id); }}>{label}</a>)}
+        {links.map(([label, id]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined} onClick={() => selectSection(id)}>{label}</a>)}
         <a href="#contact" className="mobile-connect" onClick={() => setOpen(false)}>Let’s connect <Icon size={16} /></a>
       </div>
       <div className="nav-actions">

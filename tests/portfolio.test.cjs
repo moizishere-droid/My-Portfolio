@@ -161,6 +161,28 @@ test('animation setup renders at desktop width without runtime errors', async ()
   } finally { page.dom.window.close(); }
 });
 
+test('navbar keeps clicked destination highlighted during scrolling and follows manual scrolling', async () => {
+  const page = await render();
+  const { document: d, window: w, settle } = page;
+  const tops = { hero: -400, about: 700, projects: 1400, skills: 2200, education: 3000, resume: 4000 };
+  try {
+    for (const [id] of Object.entries(tops)) {
+      d.getElementById(id).getBoundingClientRect = () => ({ top: tops[id] });
+    }
+    d.querySelector('.nav-menu a[href="#about"]').click(); await settle();
+    w.dispatchEvent(new w.Event('scroll')); await settle();
+    assert.equal(d.querySelector('.nav-menu a[aria-current="location"]').getAttribute('href'), '#about');
+    tops.about = 112;
+    w.dispatchEvent(new w.Event('scroll')); await settle();
+    assert.equal(d.querySelector('.nav-menu a[aria-current="location"]').getAttribute('href'), '#about');
+    tops.about = -400; tops.projects = 100;
+    w.dispatchEvent(new w.Event('wheel'));
+    w.dispatchEvent(new w.Event('scroll')); await settle();
+    assert.equal(d.querySelector('.nav-menu a[aria-current="location"]').getAttribute('href'), '#projects');
+    assert.deepEqual(page.errors, []);
+  } finally { page.dom.window.close(); }
+});
+
 test('preview follows resizing and orientation changes after loading', async () => {
   const page = await render({ width: 1440 });
   const { document: d, window: w, settle } = page;
