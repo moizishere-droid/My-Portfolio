@@ -106,6 +106,9 @@ test('editor controls, theme persistence, resume, copy email, and navigation wor
   const page = await render({ width: 375 });
   const { document: d, window: w, settle, errors } = page;
   try {
+    assert.equal(d.querySelector('[aria-label="Mobile preview"]').getAttribute('aria-pressed'), 'true');
+    d.querySelector('[aria-label="Desktop preview"]').click(); await settle();
+    assert.equal(d.querySelector('[aria-label="Desktop preview"]').getAttribute('aria-pressed'), 'true');
     d.querySelector('[aria-label="Mobile preview"]').click(); await settle();
     assert.ok(d.querySelector('.project-editor').classList.contains('device-mobile'));
     d.querySelector('[aria-label="Collapse editor panels"]').click(); await settle();
@@ -142,6 +145,7 @@ test('animation setup renders at desktop width without runtime errors', async ()
     assert.equal(page.document.querySelectorAll('.gradient-bars>span').length, 30);
     assert.equal(page.document.querySelectorAll('.skill-card').length, 6);
     assert.equal(page.document.querySelectorAll('.work-gallery-card').length, 5);
+    assert.equal(page.document.querySelector('[aria-label="Desktop preview"]').getAttribute('aria-pressed'), 'true');
     assert.ok(page.document.querySelector('.work-gallery.is-pinned'));
     const nextCardTransform = page.document.querySelectorAll('.work-gallery-card')[1].style.transform;
     assert.ok(Number(nextCardTransform.match(/translate\(0%,\s*([\d.]+)%\)/)?.[1]) > 110);

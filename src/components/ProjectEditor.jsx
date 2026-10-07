@@ -5,7 +5,7 @@ import ProjectVisual from './ProjectVisual';
 
 export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
   const [panels, setPanels] = useState(true);
-  const [device, setDevice] = useState('desktop');
+  const [device, setDevice] = useState(() => window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop');
   const [paused, setPaused] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [tab, setTab] = useState('Projects');
@@ -24,6 +24,12 @@ export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
   speedRef.current = speed;
   pauseRef.current = paused || active !== null || held !== null;
 
+  useEffect(() => {
+    const screen = window.matchMedia('(max-width: 767px)');
+    const updateDevice = event => setDevice(event.matches ? 'mobile' : 'desktop');
+    screen.addEventListener('change', updateDevice);
+    return () => screen.removeEventListener('change', updateDevice);
+  }, []);
   useEffect(() => {
     const observer = new ResizeObserver(entries => setWidth(Math.round(entries[0].contentRect.width)));
     observer.observe(viewport.current);
