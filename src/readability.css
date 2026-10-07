@@ -9,18 +9,18 @@ section, .resume-viewer { scroll-margin-top: 112px; }
 }
 .navigation.shell {
   width: min(calc(100% - 80px), 1640px);
-  height: 112px;
+  height: 96px;
   gap: 24px;
 }
-.scrolled .navigation { height: 96px; }
-.navigation .wordmark { font-size: 34px; gap: 13px; }
-.navigation .wordmark > svg { width: 45px; height: 39px; }
+.scrolled .navigation { height: 88px; }
+.navigation .wordmark { font-size: 28px; gap: 10px; }
+.navigation .wordmark > svg { width: 36px; height: 32px; }
 .brand-link { flex-shrink: 0; }
 .nav-menu { gap: 4px; }
 .nav-menu > a {
   padding: 11px 14px;
   border-radius: 100px;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 550;
   line-height: 1.5;
   color: color-mix(in srgb, var(--fg) 90%, var(--bg));
@@ -32,7 +32,7 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   background: var(--surface2);
 }
 .nav-actions { gap: 14px; flex-shrink: 0; }
-.nav-connect { min-height: 54px; padding: 12px 24px; font-size: 18px; }
+.nav-connect { min-height: 46px; padding: 10px 20px; font-size: 16px; }
 .navigation .theme-toggle {
   width: 44px;
   height: 44px;
@@ -42,13 +42,13 @@ section, .resume-viewer { scroll-margin-top: 112px; }
 }
 .hero { padding-top: clamp(142px, 14vh, 164px); }
 .hero .hero-badge { font-size: 16px; padding: 10px 19px; }
-.hero-title { font-size: clamp(64px, 8.4vw, 124px); margin: 20px auto 24px; }
-.hero-subtitle { font-size: 23px; margin-bottom: 26px; }
+.hero-title { font-size: clamp(52px, 6.4vw, 92px); margin: 20px auto 24px; }
+.hero-subtitle { font-size: 20px; margin-bottom: 24px; }
 .hero-buttons { gap: 14px; margin-bottom: 40px; }
 .hero-buttons .button {
-  min-height: 58px;
-  padding: 13px 29px;
-  font-size: 19px;
+  min-height: 50px;
+  padding: 11px 24px;
+  font-size: 17px;
 }
 
 /* Each letter has two full rows. Translate exactly one row, independent of

@@ -5,11 +5,11 @@
 body { font-size: 18px; }
 .shell { width: min(calc(100% - 80px), 1552px); }
 .eyebrow { font-size: 16px; line-height: 1.5; }
-.display-heading { font-size: clamp(46px, 5.2vw, 76px); }
+.display-heading { font-size: clamp(38px, 4.2vw, 58px); }
 .section-subtitle { font-size: 20px; line-height: 1.7; }
 .button { font-size: 17px; min-height: 52px; padding: 12px 23px; }
-.about-copy h2 { font-size: clamp(44px, 4.6vw, 68px); }
-.about-copy > p:not(.eyebrow) { font-size: 21px; line-height: 1.75; max-width: 620px; }
+.about-copy h2 { font-size: clamp(38px, 4vw, 56px); }
+.about-copy > p:not(.eyebrow) { font-size: 18px; line-height: 1.7; max-width: 620px; }
 .about-copy .inline-buttons { gap: 16px; }
 .about-layout { gap: 60px; }
 .metrics-strip { gap: 28px; }
@@ -25,7 +25,7 @@ body { font-size: 18px; }
 .work-info { padding: 36px; }
 .work-info-top { font-size: 15px; gap: 14px; margin-bottom: 24px; }
 .project-status { font-size: 14px; line-height: 1.5; }
-.work-info h3 { font-size: clamp(36px, 3.5vw, 52px); max-width: none; }
+.work-info h3 { font-size: clamp(30px, 3vw, 42px); max-width: none; }
 .work-info > p { font-size: 19px; line-height: 1.7; }
 .work-art .project-visual { min-height: 600px; max-height: none; }
 .project-tags { gap: 8px; }
@@ -311,3 +311,4 @@ body { font-size: 18px; }
 .work-external-links .subtle-link { white-space: nowrap; }
 .work-external-links .demo-link { color: var(--blue-light); font-weight: 600; }
 .work-info-bottom { flex-wrap: wrap; }
+.demo-status { font-size: 12px; color: var(--muted); line-height: 1.5; }
