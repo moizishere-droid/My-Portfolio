@@ -413,3 +413,45 @@ body { font-size: 14px; }
   .navigation.shell { gap: 8px; }
   .education-card, .skill-card, .approach-card { padding: 22px; }
 }
+
+/* A compact, consistent rhythm between portfolio sections. */
+.section-pad { padding-block: clamp(36px, 4vw, 60px); }
+.about-section { min-height: 0; padding-top: 60px; }
+.metrics-strip { margin-top: 40px; padding-top: 26px; }
+.works-section { padding-top: 28px; }
+.work-heading { padding-bottom: 20px; }
+.work-heading .eyebrow { margin-bottom: 12px; }
+.work-heading > p:last-of-type { margin-top: 16px; }
+.work-toolbar { margin-top: 24px; }
+.work-gallery.is-pinned { padding-top: 90px; }
+.skills-heading-row { margin-bottom: 28px; }
+.platform-strip { margin-top: 36px; padding-block: 26px; }
+.education-grid { margin-bottom: 36px; }
+.approach-heading { margin-bottom: 22px; }
+.resume-section, .faq-section { padding-block: 36px; }
+.contact-section { padding-block: 54px; }
+.site-footer { padding-top: 30px; }
+.footer-top { padding-bottom: 26px; }
+.footer-grid { padding-block: 28px; }
+.footer-bottom { padding-block: 18px; }
+@media (max-width: 900px) {
+  .section-pad { padding-block: 36px; }
+  .about-section { padding-top: 40px; }
+  .about-copy { padding-block: 12px; }
+  .metrics-strip { margin-top: 28px; }
+  .works-section { padding-top: 20px; }
+  .skills-heading-row { margin-bottom: 24px; }
+  .platform-strip { margin-top: 28px; }
+}
+@media (max-width: 600px) {
+  .section-pad { padding-block: 28px; }
+  .about-section { padding-top: 32px; }
+  .work-heading { padding-bottom: 14px; }
+  .work-toolbar { margin-top: 20px; }
+  .work-gallery:not(.is-pinned) { padding-top: 8px; }
+  .education-grid { margin-bottom: 28px; }
+  .resume-section, .faq-section { padding-block: 28px; }
+  .contact-section { padding-block: 40px; }
+  .site-footer { padding-top: 24px; }
+  .footer-grid { padding-block: 24px; }
+}
