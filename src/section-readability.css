@@ -455,3 +455,11 @@ body { font-size: 14px; }
   .site-footer { padding-top: 24px; }
   .footer-grid { padding-block: 24px; }
 }
+/* Keep the platforms-to-background transition compact at every breakpoint. */
+.skills-section.section-pad { padding-bottom: 16px; }
+.skills-section .platform-strip { padding-bottom: 8px; }
+.education-section.section-pad { padding-top: 28px; }
+@media (max-width: 600px) {
+  .skills-section.section-pad { padding-bottom: 12px; }
+  .education-section.section-pad { padding-top: 24px; }
+}
