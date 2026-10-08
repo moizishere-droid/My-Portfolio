@@ -4,4 +4,8 @@ import App from './App';
 import './styles.css';
 import './readability.css';
 import './section-readability.css';
-createRoot(document.getElementById('root')).render(<StrictMode><App /></StrictMode>);
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

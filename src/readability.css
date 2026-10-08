@@ -1,6 +1,11 @@
 /* Larger navigation and explicit rolling-text geometry at every font size. */
-html { scroll-padding-top: 112px; }
-section, .resume-viewer { scroll-margin-top: 112px; }
+html {
+  scroll-padding-top: 112px;
+}
+section,
+.resume-viewer {
+  scroll-margin-top: 112px;
+}
 
 .site-header {
   background: color-mix(in srgb, var(--bg) 90%, transparent);
@@ -12,11 +17,23 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   height: 76px;
   gap: 18px;
 }
-.scrolled .navigation { height: 70px; }
-.navigation .wordmark { font-size: 20px; gap: 8px; }
-.navigation .wordmark > svg { width: 30px; height: 26px; }
-.brand-link { flex-shrink: 0; }
-.nav-menu { gap: 4px; }
+.scrolled .navigation {
+  height: 70px;
+}
+.navigation .wordmark {
+  font-size: 20px;
+  gap: 8px;
+}
+.navigation .wordmark > svg {
+  width: 30px;
+  height: 26px;
+}
+.brand-link {
+  flex-shrink: 0;
+}
+.nav-menu {
+  gap: 4px;
+}
 .nav-menu > a {
   padding: 8px 11px;
   border-radius: 100px;
@@ -24,15 +41,24 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   font-weight: 550;
   line-height: 1.5;
   color: color-mix(in srgb, var(--fg) 90%, var(--bg));
-  transition: color .2s, background .2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
 }
 .nav-menu > a:hover,
 .nav-menu > a[aria-current='location'] {
   color: var(--fg);
   background: var(--surface2);
 }
-.nav-actions { gap: 10px; flex-shrink: 0; }
-.nav-connect { min-height: 38px; padding: 8px 16px; font-size: 13px; }
+.nav-actions {
+  gap: 10px;
+  flex-shrink: 0;
+}
+.nav-connect {
+  min-height: 38px;
+  padding: 8px 16px;
+  font-size: 13px;
+}
 .navigation .theme-toggle {
   width: 36px;
   height: 36px;
@@ -40,11 +66,25 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   border-radius: 50%;
   color: var(--fg);
 }
-.hero { padding-top: clamp(142px, 14vh, 164px); }
-.hero .hero-badge { font-size: 14px; padding: 10px 19px; }
-.hero-title { font-size: clamp(42px, 5.44vw, 74px); margin: 20px auto 24px; }
-.hero-subtitle { font-size: 16px; margin-bottom: 24px; }
-.hero-buttons { gap: 14px; margin-bottom: 40px; }
+.hero {
+  padding-top: clamp(142px, 14vh, 164px);
+}
+.hero .hero-badge {
+  font-size: 14px;
+  padding: 10px 19px;
+}
+.hero-title {
+  font-size: clamp(42px, 5.44vw, 74px);
+  margin: 20px auto 24px;
+}
+.hero-subtitle {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+.hero-buttons {
+  gap: 14px;
+  margin-bottom: 40px;
+}
 .hero-buttons .button {
   min-height: 50px;
   padding: 11px 24px;
@@ -67,8 +107,8 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   height: 3em;
   min-height: 3em;
   transform: translateY(0);
-  transition: transform .4s var(--ease);
-  transition-delay: calc(var(--i) * .01s);
+  transition: transform 0.4s var(--ease);
+  transition-delay: calc(var(--i) * 0.01s);
 }
 .roll-char > span {
   display: block;
@@ -77,14 +117,26 @@ section, .resume-viewer { scroll-margin-top: 112px; }
   line-height: 1.5;
 }
 .button:hover .roll-char,
-.button:focus-visible .roll-char { transform: translateY(-1.5em); }
+.button:focus-visible .roll-char {
+  transform: translateY(-1.5em);
+}
 
 /* Switch to a readable menu instead of shrinking desktop text to fit. */
 @media (max-width: 1360px) {
-  .navigation.shell { width: calc(100% - 48px); height: 72px; }
-  .scrolled .navigation { height: 68px; }
-  .navigation .wordmark { font-size: 20px; }
-  .navigation .wordmark > svg { width: 30px; height: 26px; }
+  .navigation.shell {
+    width: calc(100% - 48px);
+    height: 72px;
+  }
+  .scrolled .navigation {
+    height: 68px;
+  }
+  .navigation .wordmark {
+    font-size: 20px;
+  }
+  .navigation .wordmark > svg {
+    width: 30px;
+    height: 26px;
+  }
   .nav-menu {
     position: absolute;
     top: calc(100% - 1px);
@@ -101,8 +153,14 @@ section, .resume-viewer { scroll-margin-top: 112px; }
     max-height: calc(100svh - 72px);
     overflow-y: auto;
   }
-  .nav-menu.is-open { display: flex; }
-  .nav-menu > a { font-size: 16px; padding: 10px 14px; border-radius: 8px; }
+  .nav-menu.is-open {
+    display: flex;
+  }
+  .nav-menu > a {
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 8px;
+  }
   .nav-menu .mobile-connect {
     display: flex !important;
     align-items: center;
@@ -123,35 +181,90 @@ section, .resume-viewer { scroll-margin-top: 112px; }
     flex-direction: column;
     gap: 6px;
   }
-  .menu-toggle span { width: 19px; height: 1px; background: var(--fg); transition: transform .3s; }
-  .menu-toggle.open span:first-child { transform: translateY(3.5px) rotate(45deg); }
-  .menu-toggle.open span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+  .menu-toggle span {
+    width: 19px;
+    height: 1px;
+    background: var(--fg);
+    transition: transform 0.3s;
+  }
+  .menu-toggle.open span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+  .menu-toggle.open span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
 }
 @media (max-width: 900px) {
-  .hero-title { font-size: clamp(38px, 7.65vw, 64px); }
-  .hero-subtitle { font-size: 16px; }
-  .hero .hero-badge { font-size: 14px; }
+  .hero-title {
+    font-size: clamp(38px, 7.65vw, 64px);
+  }
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  .hero .hero-badge {
+    font-size: 14px;
+  }
 }
 @media (max-width: 600px) {
-  .navigation.shell { width: calc(100% - 32px); height: 68px; gap: 10px; }
-  .scrolled .navigation { height: 64px; }
-  .navigation .wordmark { font-size: 18px; gap: 7px; }
-  .navigation .wordmark > svg { width: 27px; height: 24px; }
-  .nav-actions { gap: 8px; }
-  .nav-connect { display: none; }
-  .nav-menu { padding-inline: 16px; }
-  .hero { padding-top: 118px; }
-  .hero-title { font-size: clamp(27px, 8.07vw, 46px); margin: 20px auto; }
-  .hero .hero-badge { font-size: 11px; padding: 9px 12px; }
-  .hero-subtitle { font-size: 14px; margin-bottom: 22px; }
-  .hero-buttons { gap: 10px; margin-bottom: 30px; }
-  .hero-buttons .button { min-height: 50px; padding: 11px 20px; font-size: 14px; }
+  .navigation.shell {
+    width: calc(100% - 32px);
+    height: 68px;
+    gap: 10px;
+  }
+  .scrolled .navigation {
+    height: 64px;
+  }
+  .navigation .wordmark {
+    font-size: 18px;
+    gap: 7px;
+  }
+  .navigation .wordmark > svg {
+    width: 27px;
+    height: 24px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-connect {
+    display: none;
+  }
+  .nav-menu {
+    padding-inline: 16px;
+  }
+  .hero {
+    padding-top: 118px;
+  }
+  .hero-title {
+    font-size: clamp(27px, 8.07vw, 46px);
+    margin: 20px auto;
+  }
+  .hero .hero-badge {
+    font-size: 11px;
+    padding: 9px 12px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+  .hero-buttons {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .hero-buttons .button {
+    min-height: 50px;
+    padding: 11px 20px;
+    font-size: 14px;
+  }
 }
 @media (hover: none) {
-  .button:hover .roll-char { transform: translateY(0); }
+  .button:hover .roll-char {
+    transform: translateY(0);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .roll-char, .button:hover .roll-char, .button:focus-visible .roll-char {
+  .roll-char,
+  .button:hover .roll-char,
+  .button:focus-visible .roll-char {
     transform: none !important;
     transition: none;
   }
