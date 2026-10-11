@@ -26,6 +26,7 @@ export default function ProjectVisual({ project, compact = false }) {
           {project.id === 'agentic-ai' ? 'Architecture' : 'Workspace'}
         </span>
       </div>
+
       <div className="visual-layout">
         <aside className="visual-sidebar">
           <span className="visual-nav active">
@@ -47,6 +48,7 @@ export default function ProjectVisual({ project, compact = false }) {
             </span>
           </div>
         </aside>
+
         <div className="visual-body">
           {project.id === 'loan-risk' && (
             <>
@@ -56,7 +58,9 @@ export default function ProjectVisual({ project, compact = false }) {
                 <br />
                 of financial risk.
               </h3>
-              <p className="visual-description">Prediction. Segmentation. Explainability.</p>
+              <p className="visual-description">
+                Prediction. Segmentation. Explainability.
+              </p>
               <div className="visual-stats">
                 <div>
                   <small>Classification F1</small>
@@ -98,6 +102,7 @@ export default function ProjectVisual({ project, compact = false }) {
               </div>
             </>
           )}
+
           {project.id === 'cat-dog' && (
             <>
               <p className="visual-kicker">COMPUTER VISION</p>
@@ -106,7 +111,9 @@ export default function ProjectVisual({ project, compact = false }) {
                 <br />
                 Confident predictions.
               </h3>
-              <p className="visual-description">EfficientNetV2L · Transfer learning</p>
+              <p className="visual-description">
+                EfficientNetV2L · Transfer learning
+              </p>
               <div className="vision-frame">
                 <div className="scan-grid" />
                 <svg viewBox="0 0 180 150" aria-hidden="true">
@@ -143,6 +150,7 @@ export default function ProjectVisual({ project, compact = false }) {
               </div>
             </>
           )}
+
           {project.id === 'codementor' && (
             <>
               <p className="visual-kicker">YOUR CODING COMPANION</p>
@@ -160,7 +168,9 @@ export default function ProjectVisual({ project, compact = false }) {
                 <div>
                   <p>Attention lets each token learn which other tokens matter.</p>
                   <div className="code-snippet">
-                    <span className="code-muted"># Scaled dot-product attention</span>
+                    <span className="code-muted">
+                      # Scaled dot-product attention
+                    </span>
                     <br />
                     <span className="code-purple">def</span> attention(q, k, v):
                     <br />
@@ -182,6 +192,7 @@ export default function ProjectVisual({ project, compact = false }) {
               </div>
             </>
           )}
+
           {project.id === 'medrag' && (
             <>
               <p className="visual-kicker">KNOWLEDGE, CONNECTED</p>
@@ -190,18 +201,26 @@ export default function ProjectVisual({ project, compact = false }) {
                 <br />
                 Without the barriers.
               </h3>
-              <p className="visual-description">Multilingual. Multimodal. Grounded in sources.</p>
+              <p className="visual-description">
+                Multilingual medical evidence with source citations.
+              </p>
               <div className="rag-network">
                 <span className="network-center">
                   <Icon name="layers" size={32} />
                   MedRAG
                 </span>
-                {['PubMed', 'WHO', 'OpenFDA', 'Qdrant', 'CLIP', 'Neo4j'].map((name, i) => (
-                  <span key={name} className={`network-node node-${i}`}>
-                    {name}
-                  </span>
-                ))}
-                <svg viewBox="0 0 440 220" preserveAspectRatio="none" aria-hidden="true">
+                {['PubMed', 'WHO', 'OpenFDA', 'Qdrant', 'BM25', 'Neo4j'].map(
+                  (name, i) => (
+                    <span key={name} className={`network-node node-${i}`}>
+                      {name}
+                    </span>
+                  ),
+                )}
+                <svg
+                  viewBox="0 0 440 220"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
                   <path d="M220 110 64 45M220 110 220 24M220 110 370 45M220 110 64 180M220 110 220 198M220 110 370 180" />
                 </svg>
               </div>
@@ -211,10 +230,11 @@ export default function ProjectVisual({ project, compact = false }) {
                 ))}
               </div>
               <div className="visual-footer-line">
-                Architecture complete<span>In development</span>
+                22,696 indexed chunks<span>Local Docker app</span>
               </div>
             </>
           )}
+
           {project.id === 'agentic-ai' && (
             <>
               <p className="visual-kicker">THE NEXT CHAPTER</p>
@@ -223,7 +243,9 @@ export default function ProjectVisual({ project, compact = false }) {
                 <br />
                 Many capable agents.
               </h3>
-              <p className="visual-description">Planning a production multi-agent system.</p>
+              <p className="visual-description">
+                Planning a production multi-agent system.
+              </p>
               <div className="agent-flow">
                 <span className="flow-goal">Real-world task</span>
                 <i />
@@ -256,7 +278,10 @@ export default function ProjectVisual({ project, compact = false }) {
           )}
         </div>
       </div>
-      <span className="visual-caption">Interface study · {project.category}</span>
+
+      <span className="visual-caption">
+        Interface study · {project.category}
+      </span>
     </div>
   );
 }
