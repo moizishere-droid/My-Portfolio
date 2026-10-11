@@ -194,7 +194,30 @@ export const projects = [
     practiceTitle: '',
     practice: [],
   },
+  {
+    id: 'agentic-ai',
+    number: '05',
+    category: 'Agentic AI',
+    title: 'Agentic AI System — Coming Soon',
+    description:
+      'A production-grade multi-agent system currently in the planning phase. Will combine supervisor-worker agent architecture, tool-calling, long-term memory, and real-world integrations — building on the agent and RAG foundations already in place. Full repo and deployment will follow the same 20+ phase production methodology.',
+    status: 'In Planning',
+    tags: [
+      'LangGraph',
+      'Supervisor Agents',
+      'Tool Use',
+      'Long-term Memory',
+      'FastAPI',
+      'Docker',
+      'TBD',
+    ],
+    metrics: [],
+    links: [],
+    practiceTitle: '',
+    practice: [],
+  },
 ];
+
 export const skills = [
   {
     title: 'Classical ML',
@@ -347,6 +370,7 @@ export const skills = [
     ],
   },
 ];
+
 export const education = [
   {
     date: '2022 — Present',
@@ -363,6 +387,7 @@ export const education = [
       'Systematic study across 5 domains: Classical ML → Deep Learning → LLM Fine-tuning → RAG Systems → Agentic AI. All production projects follow a 20+ phase methodology: experiment in notebooks, then refactor to documented production code with full deployment.',
   },
 ];
+
 export const projectSummaries = {
   'loan-risk':
     'Predicts loan approval, interest rates, and borrower segments, with SHAP explanations and a deployed FastAPI backend.',
@@ -371,11 +396,13 @@ export const projectSummaries = {
   codementor:
     'A coding assistant built by fine-tuning Llama 3.2 with SFT and DPO, deployed on HuggingFace Spaces.',
   medrag:
-     'A multilingual medical evidence assistant with source citations, hybrid retrieval over 22,696 indexed chunks, and sign-in, saved chats, and PDF uploads. Packaged as a local Docker application.',
+    'A multilingual medical evidence assistant with source citations, hybrid retrieval over 22,696 indexed chunks, and sign-in, saved chats, and PDF uploads. Packaged as a local Docker application.',
   'agentic-ai':
     'A planned multi-agent system for coordinating research, analysis, and coding tasks.',
 };
+
 export const email = 'abdulmoiz.aiml.dev@gmail.com';
+
 export const socials = [
   { label: 'GitHub', href: 'https://github.com/moizishere-droid' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abdul-moiz-a70678265/' },
