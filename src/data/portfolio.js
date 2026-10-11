@@ -158,31 +158,31 @@ export const projects = [
     category: 'RAG Systems',
     title: 'MedRAG',
     description:
-      'End-to-end multilingual multimodal medical RAG system. Ingests PubMed, WHO guidelines, and OpenFDA. Answers across text, images, and tables in 6 languages (English, Arabic, French, German, Spanish, Urdu) using GPT-4-turbo + CLIP + Qdrant + Neo4j.',
-    status: 'In Development',
+      'Multilingual medical evidence assistant with source citations, retrieving from 22,696 indexed chunks across PubMed, WHO guidelines, and OpenFDA. Combines hybrid retrieval, reranking, and Neo4j graph enrichment. ONNX optimization reduced pipeline latency by 49.8–66.5% on three warmed local queries while preserving top-five retrieval order. Includes sign-in, saved chats, and chat-scoped PDF uploads, with FastAPI, Streamlit, and databases packaged using Docker.',
+    status: 'Local Docker application',
     tags: [
-      'GPT-4-turbo',
-      'CLIP',
+      'Hybrid Retrieval',
+      'Reranking',
       'Qdrant',
+      'BM25',
       'Neo4j',
-      'RAGAS',
-      'scispaCy',
+      'ONNX Runtime',
       'FastAPI',
       'Streamlit',
       'Docker',
     ],
     metrics: [
       {
-        value: '6 langs',
-        label: 'Multilingual',
+        value: '22,696',
+        label: 'Indexed chunks',
       },
       {
-        value: 'Multimodal',
-        label: 'Text+Image+Table',
+        value: '49.8–66.5%',
+        label: 'Lower latency · 3 warmed queries',
       },
       {
-        value: 'Phase 0',
-        label: 'Architecture done',
+        value: 'Top 5',
+        label: 'Retrieval order preserved',
       },
     ],
     links: [
@@ -191,28 +191,6 @@ export const projects = [
         href: 'https://github.com/moizishere-droid/medrag',
       },
     ],
-    practiceTitle: '',
-    practice: [],
-  },
-  {
-    id: 'agentic-ai',
-    number: '05',
-    category: 'Agentic AI',
-    title: 'Agentic AI System — Coming Soon',
-    description:
-      'A production-grade multi-agent system currently in the planning phase. Will combine supervisor-worker agent architecture, tool-calling, long-term memory, and real-world integrations — building on the agent and RAG foundations already in place. Full repo and deployment will follow the same 20+ phase production methodology.',
-    status: 'In Planning',
-    tags: [
-      'LangGraph',
-      'Supervisor Agents',
-      'Tool Use',
-      'Long-term Memory',
-      'FastAPI',
-      'Docker',
-      'TBD',
-    ],
-    metrics: [],
-    links: [],
     practiceTitle: '',
     practice: [],
   },
@@ -393,7 +371,7 @@ export const projectSummaries = {
   codementor:
     'A coding assistant built by fine-tuning Llama 3.2 with SFT and DPO, deployed on HuggingFace Spaces.',
   medrag:
-    'A medical RAG system connecting PubMed, WHO, and OpenFDA across six languages, with text, image, and table retrieval.',
+     'A multilingual medical evidence assistant with source citations, hybrid retrieval over 22,696 indexed chunks, and sign-in, saved chats, and PDF uploads. Packaged as a local Docker application.',
   'agentic-ai':
     'A planned multi-agent system for coordinating research, analysis, and coding tasks.',
 };
