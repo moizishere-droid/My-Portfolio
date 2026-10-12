@@ -47,10 +47,6 @@ export const projects = [
         href: 'https://abdulmoiz123-loan-risk-app.hf.space',
       },
       {
-        label: 'API Docs',
-        href: 'https://abdulmoiz123-loan-risk-api.hf.space/docs',
-      },
-      {
         label: 'Models',
         href: 'https://huggingface.co/Abdulmoiz123/loan-risk-models',
       },
@@ -189,6 +185,10 @@ export const projects = [
       {
         label: 'GitHub',
         href: 'https://github.com/moizishere-droid/medrag',
+      },
+      {
+        label: 'Live Demo',
+        href: 'https://moizishere-droid--medrag.modal.run/',
       },
     ],
     practiceTitle: '',
