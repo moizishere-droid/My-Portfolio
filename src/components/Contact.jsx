@@ -5,7 +5,7 @@ import { Accordion, Button, GradientBars, Icon } from './ui';
 const faqs = [
   [
     'What kind of opportunities are you looking for?',
-    'I’m open to AI/ML internships, research roles, and freelance projects. I’m targeting roles from 2027.',
+    'I’m open to AI/ML internships, research roles, and freelance projects',
   ],
   ['Where are you based?', 'I’m based in Karachi, Pakistan, and I’m open to remote work.'],
   [
@@ -55,7 +55,7 @@ export default function Contact() {
         <div className="shell contact-content" data-reveal>
           <p className="hero-badge">
             <span className="status-dot" />
-            Open to AI / ML opportunities · Targeting 2027
+            Open to AI / ML opportunities
           </p>
           <h2>
             Let’s build
