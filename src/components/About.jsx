@@ -43,7 +43,7 @@ export default function About() {
 
             {/* Personal Introduction */}
             <p>
-              I am Abdul Moiz, a final-year Computer Science student at UBIT, University of Karachi.
+              I am Abdul Moiz, a final-year Software Engineering student at UBIT, University of Karachi.
               I build ML applications, fine-tuned LLMs, and RAG systems.
             </p>
 
@@ -85,7 +85,7 @@ export default function About() {
             3.30
             <span className="metric-unit">/4.00</span>
           </strong>
-          <span>CGPA · BS Computer Science</span>
+          <span>CGPA · BS Software Engineering</span>
         </div>
 
         {/* Deployment Status */}
