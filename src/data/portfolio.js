@@ -154,7 +154,7 @@ export const projects = [
     category: 'RAG Systems',
     title: 'MedRAG',
     description:
-      'Multilingual medical evidence assistant with source citations, retrieving from 22,696 indexed chunks across PubMed, WHO guidelines, and OpenFDA. Combines hybrid retrieval, reranking, and Neo4j graph enrichment. ONNX optimization reduced pipeline latency by 49.8–66.5% on three warmed local queries while preserving top-five retrieval order. Includes sign-in, saved chats, and chat-scoped PDF uploads, with FastAPI, Streamlit, and databases packaged using Docker.',
+      'A multilingual medical knowledge assistant that searches PubMed, WHO guidelines, and OpenFDA to generate cited answers. Combines hybrid retrieval, reranking, and knowledge graph enrichment, with saved conversations, private PDF chat, and available source tables and figures. Built with FastAPI and Streamlit, packaged with Docker, and deployed on Modal.',
     status: 'Local Docker application',
     tags: [
       'Hybrid Retrieval',
