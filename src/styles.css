@@ -823,12 +823,6 @@ main {
   overflow: hidden;
   min-height: 450px;
 }
-.visual-cat-dog {
-  --art-bg: #e0e7d8;
-  --art-fg: #253a2e;
-  --art-accent: #467852;
-  --art-line: #253a2e20;
-}
 .visual-codementor {
   --art-bg: #18181c;
   --art-fg: #ededf2;
@@ -1812,6 +1806,57 @@ main {
 .skill-items {
   display: grid;
   gap: 12px;
+}
+.skill-tool-list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.skill-tool-list li {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.skill-evidence-note {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.skill-project-links {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+.skill-project-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+  cursor: pointer;
+}
+.skill-project-link svg {
+  flex-shrink: 0;
+}
+.skill-project-link:hover span {
+  text-decoration: underline;
+}
+.skill-project-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 .skill-item > div:first-child {
   display: flex;

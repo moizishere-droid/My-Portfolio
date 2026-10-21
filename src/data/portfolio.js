@@ -4,6 +4,13 @@ export const projects = [
     number: '01',
     category: 'Classical ML',
     title: 'Loan Risk Assessment System',
+    problem: 'Make loan predictions understandable alongside the financial inputs behind them.',
+    approach: 'Combine classification, interest-rate regression, borrower segmentation, and SHAP explanations behind a FastAPI service.',
+    outcome: 'A deployed application with ONNX inference and a PostgreSQL audit trail. Model evaluation scores are listed below.',
+    screenshot: 'images/projects/loan-risk.jpg',
+    screenshotAlt: 'Loan Risk Assessment System showing the new applicant form and loan and credit input fields.',
+    workflow:
+      'Train and tune the prediction models, evaluate classification and regression results, export to ONNX, and serve predictions with FastAPI, SHAP explanations, and PostgreSQL audit logging.',
     description:
       "End-to-end ML system for loan risk prediction. Takes an applicant's financial profile and returns an approval decision, predicted interest rate, borrower segment, and plain-English SHAP explanation — backed by ONNX-exported models, FastAPI, and a PostgreSQL audit trail on Neon Cloud.",
     status: 'Live on HF Spaces',
@@ -32,10 +39,6 @@ export const projects = [
         value: 'R² 0.9077',
         label: 'Regression',
       },
-      {
-        value: '20 phases',
-        label: 'Full MLOps',
-      },
     ],
     links: [
       {
@@ -55,55 +58,19 @@ export const projects = [
     practice: [],
   },
   {
-    id: 'cat-dog',
-    number: '02',
-    category: 'Deep Learning',
-    title: 'Cat vs Dog Classifier',
-    description:
-      'Transfer learning with EfficientNetV2L (ImageNet). Fine-tuned last 20 layers with data augmentation. Validation accuracy 95%, precision 99.07%, recall 100%. Model hosted on HuggingFace, Streamlit app deployed via Docker.',
-    status: 'Live · HF + Streamlit',
-    tags: [
-      'EfficientNetV2L',
-      'Transfer Learning',
-      'Data Augmentation',
-      'TensorFlow/Keras',
-      'Docker',
-      'HuggingFace',
-    ],
-    metrics: [
-      {
-        value: '95%',
-        label: 'Val Accuracy',
-      },
-      {
-        value: '99.07%',
-        label: 'Precision',
-      },
-      {
-        value: '100%',
-        label: 'Recall',
-      },
-    ],
-    links: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/moizishere-droid/CatDog-Classifier-Finetune-Augmentation-DL-Project',
-      },
-      {
-        label: 'Model',
-        href: 'https://huggingface.co/Abdulmoiz123/cat-dog-classifier',
-      },
-    ],
-    practiceTitle: '',
-    practice: [],
-  },
-  {
     id: 'codementor',
-    number: '03',
+    number: '02',
     category: 'LLM Fine-tuning',
     title: 'CodeMentor-LLM',
+    problem: 'Adapt a general instruction model for coding questions.',
+    approach: 'Use QLoRA with supervised fine-tuning, followed by preference alignment with DPO.',
+    outcome: 'A deployed coding assistant and published model. Generated code requires review and testing.',
+    screenshot: 'images/projects/codementor.jpg',
+    screenshotAlt: 'CodeMentor-LLM coding assistant showing its question input and Generate Response button.',
+    workflow:
+      'Fine-tune Llama 3.2 with supervised fine-tuning (SFT), follow with direct preference optimization (DPO), track experiments in W&B, and deploy on HuggingFace Spaces with GitHub Actions CI/CD.',
     description:
-      'Production-grade coding assistant built by fine-tuning Llama-3.2-3B-Instruct with a two-stage SFT + DPO alignment pipeline on 5,000 high-quality coding pairs. CI/CD via GitHub Actions, experiment tracking on W&B, deployed on HF Spaces.',
+      'Coding assistant built by fine-tuning Llama-3.2-3B-Instruct with a two-stage SFT + DPO alignment pipeline on 5,000 coding pairs. CI/CD via GitHub Actions, experiment tracking on W&B, deployed on HF Spaces.',
     status: 'Live on HF Spaces',
     tags: [
       'Llama-3.2-3B',
@@ -118,10 +85,6 @@ export const projects = [
       'CI/CD',
     ],
     metrics: [
-      {
-        value: '24 phases',
-        label: 'Full MLOps',
-      },
       {
         value: 'SFT + DPO',
         label: 'Two-stage',
@@ -150,12 +113,17 @@ export const projects = [
   },
   {
     id: 'medrag',
-    number: '04',
+    number: '03',
     category: 'RAG Systems',
     title: 'MedRAG',
+    problem: 'Find relevant medical reference material and return answers with source citations.',
+    approach: 'Combine hybrid retrieval, reranking, and knowledge graph enrichment with multilingual answers and session-specific PDF uploads.',
+    outcome: 'A Modal-hosted application with Docker packaging for local use and 22,696 indexed chunks. Latency figures cover only three warmed queries, not a general performance guarantee.',
+    screenshot: 'images/projects/medrag.jpg',
+    screenshotAlt: 'MedRAG medical knowledge assistant showing its chat workspace, session controls, and document upload options.',
     description:
-      'A multilingual medical knowledge assistant that searches PubMed, WHO guidelines, and OpenFDA to generate cited answers. Combines hybrid retrieval, reranking, and knowledge graph enrichment, with saved conversations, private PDF chat, and available source tables and figures. Built with FastAPI and Streamlit, packaged with Docker, and deployed on Modal.',
-    status: 'Local Docker application',
+      'A multilingual medical knowledge assistant that searches PubMed, WHO guidelines, and OpenFDA to generate cited answers. Combines hybrid retrieval, reranking, and knowledge graph enrichment, with saved conversations, private PDF chat, and available source tables and figures. Built with FastAPI and Streamlit and deployed on Modal, with Docker packaging to build and run the application locally.',
+    status: 'Live on Modal',
     tags: [
       'Hybrid Retrieval',
       'Reranking',
@@ -194,211 +162,66 @@ export const projects = [
     practiceTitle: '',
     practice: [],
   },
-  {
-    id: 'agentic-ai',
-    number: '05',
-    category: 'Agentic AI',
-    title: 'Agentic AI System — Coming Soon',
-    description:
-      'A production-grade multi-agent system currently in the planning phase. Will combine supervisor-worker agent architecture, tool-calling, long-term memory, and real-world integrations — building on the agent and RAG foundations already in place. Full repo and deployment will follow the same 20+ phase production methodology.',
-    status: 'In Planning',
-    tags: [
-      'LangGraph',
-      'Supervisor Agents',
-      'Tool Use',
-      'Long-term Memory',
-      'FastAPI',
-      'Docker',
-      'TBD',
-    ],
-    metrics: [],
-    links: [],
-    practiceTitle: '',
-    practice: [],
-  },
 ];
 
 export const skills = [
   {
     title: 'Classical ML',
-    items: [
-      {
-        name: 'LightGBM / XGBoost',
-        level: 90,
-      },
-      {
-        name: 'Feature Engineering',
-        level: 88,
-      },
-      {
-        name: 'SHAP Explainability',
-        level: 85,
-      },
-      {
-        name: 'ONNX Export',
-        level: 80,
-      },
-      {
-        name: 'Optuna Tuning',
-        level: 78,
-      },
-    ],
+    items: ['LightGBM', 'Random Forest', 'Gaussian Mixture Models', 'Optuna'],
+    projectIds: ['loan-risk'],
   },
   {
-    title: 'Deep Learning',
-    items: [
-      {
-        name: 'CNNs (EfficientNet, ResNet)',
-        level: 85,
-      },
-      {
-        name: 'RNN / LSTM / GRU',
-        level: 82,
-      },
-      {
-        name: 'Transfer Learning',
-        level: 88,
-      },
-      {
-        name: 'Data Augmentation',
-        level: 84,
-      },
-      {
-        name: 'TensorFlow / PyTorch',
-        level: 85,
-      },
-    ],
+    title: 'Deep Learning Foundations',
+    items: ['CNNs', 'Transfer Learning', 'Data Augmentation', 'TensorFlow / PyTorch'],
+    note: 'Developed through coursework and learning projects.',
+    projectIds: [],
   },
   {
     title: 'LLMs & Fine-tuning',
-    items: [
-      {
-        name: 'QLoRA / LoRA (PEFT)',
-        level: 85,
-      },
-      {
-        name: 'SFT + DPO Pipeline',
-        level: 83,
-      },
-      {
-        name: 'Full Fine-tuning',
-        level: 80,
-      },
-      {
-        name: 'Domain Adapters',
-        level: 78,
-      },
-      {
-        name: 'W&B Tracking',
-        level: 78,
-      },
-    ],
+    items: ['QLoRA / PEFT', 'Supervised Fine-tuning (SFT)', 'Direct Preference Optimization (DPO)', 'W&B Tracking'],
+    projectIds: ['codementor'],
   },
   {
-    title: 'RAG & Agentic',
-    items: [
-      {
-        name: 'Qdrant · FAISS · Neo4j',
-        level: 85,
-      },
-      {
-        name: 'LangChain · LangGraph',
-        level: 88,
-      },
-      {
-        name: 'RAGAS Evaluation',
-        level: 78,
-      },
-      {
-        name: 'CLIP (Multimodal)',
-        level: 74,
-      },
-      {
-        name: 'Tool-calling Agents',
-        level: 80,
-      },
-    ],
+    title: 'Retrieval Systems',
+    items: ['Qdrant', 'BM25 / Hybrid Retrieval', 'Reranking', 'Neo4j'],
+    projectIds: ['medrag'],
   },
   {
-    title: 'Backend & Infra',
-    items: [
-      {
-        name: 'FastAPI · Pydantic',
-        level: 86,
-      },
-      {
-        name: 'Docker · Compose',
-        level: 82,
-      },
-      {
-        name: 'PostgreSQL (Neon)',
-        level: 78,
-      },
-      {
-        name: 'GitHub Actions CI/CD',
-        level: 74,
-      },
-      {
-        name: 'HuggingFace Hub',
-        level: 85,
-      },
-    ],
+    title: 'Backend & Deployment',
+    items: ['FastAPI', 'Docker', 'PostgreSQL (Neon)', 'GitHub Actions CI/CD', 'HuggingFace Spaces'],
+    projectIds: ['loan-risk', 'codementor'],
   },
   {
-    title: 'Evaluation',
-    items: [
-      {
-        name: 'RAGAS (RAG metrics)',
-        level: 80,
-      },
-      {
-        name: 'F1 / AUC / Silhouette',
-        level: 88,
-      },
-      {
-        name: 'BLEU / Perplexity',
-        level: 72,
-      },
-      {
-        name: 'SHAP / Surrogate',
-        level: 82,
-      },
-      {
-        name: 'pytest · API testing',
-        level: 75,
-      },
-    ],
+    title: 'Evaluation & Inference',
+    items: ['F1 / ROC AUC', 'Regression Evaluation', 'SHAP Explainability', 'ONNX Runtime', 'Retrieval Latency Benchmarking'],
+    projectIds: ['loan-risk', 'medrag'],
   },
 ];
-
 export const education = [
   {
     date: '2022 — Present',
-    title: 'BS Computer Science',
+    title: 'BS Software Engineering',
+    completion: 'Expected graduation: 2027',
     organization: 'UBIT · University of Karachi',
     description:
-      '7th Semester · CGPA 3.30/4.00 · Coursework: Software Engineering, Distributed Systems, Simulation & Modelling, AI/ML, Computerised Accounting. Senior capstone: skin disease classification and segmentation (CNNs + segmentation architectures on dermatology dataset).',
+      'Final year · Expected graduation: 2027 · CGPA 3.30/4.00 · Coursework: Software Engineering, Distributed Systems, Simulation & Modelling, AI/ML, Computerised Accounting. Senior capstone: skin disease classification and segmentation (CNNs + segmentation architectures on dermatology dataset).',
   },
   {
     date: 'Ongoing',
     title: 'Self-directed AI/ML Research',
     organization: 'Independent',
     description:
-      'Systematic study across 5 domains: Classical ML → Deep Learning → LLM Fine-tuning → RAG Systems → Agentic AI. All production projects follow a 20+ phase methodology: experiment in notebooks, then refactor to documented production code with full deployment.',
+      'Independent study in classical ML, deep learning, LLM fine-tuning, and RAG, with ongoing exploration of agentic AI. My workflow moves from notebook experiments to evaluation, documented APIs, testing, and deployment.',
   },
 ];
 
 export const projectSummaries = {
   'loan-risk':
     'Predicts loan approval, interest rates, and borrower segments, with SHAP explanations and a deployed FastAPI backend.',
-  'cat-dog':
-    'An EfficientNetV2L image classifier with 95% validation accuracy, trained with transfer learning and data augmentation.',
   codementor:
     'A coding assistant built by fine-tuning Llama 3.2 with SFT and DPO, deployed on HuggingFace Spaces.',
   medrag:
-    'A multilingual medical evidence assistant with source citations, hybrid retrieval over 22,696 indexed chunks, and sign-in, saved chats, and PDF uploads. Packaged as a local Docker application.',
-  'agentic-ai':
-    'A planned multi-agent system for coordinating research, analysis, and coding tasks.',
+    'A multilingual medical evidence assistant with source citations, hybrid retrieval over 22,696 indexed chunks, and sign-in, saved chats, and PDF uploads. Deployed on Modal, with Docker packaging for local builds and runs.',
 };
 
 export const email = 'abdulmoiz.aiml.dev@gmail.com';

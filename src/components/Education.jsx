@@ -36,18 +36,19 @@ export default function Education() {
               </div>
               <h3>{item.title}</h3>
               <p className="education-org">{item.organization}</p>
+              {item.completion && <p>{item.completion}</p>}
               <p>
-                {item.title === 'BS Computer Science'
-                  ? 'Studying computer science with a focus on AI/ML and distributed systems. Final-year capstone: skin disease classification and segmentation.'
+                {item.title === 'BS Software Engineering'
+                  ? 'Studying software engineering with a focus on AI/ML and distributed systems. Final-year capstone: skin disease classification and segmentation.'
                   : 'Independent study in machine learning, deep learning, LLMs, RAG, and agentic AI, supported by deployed projects.'}
               </p>
-              {item.title === 'BS Computer Science' && (
+              {item.title === 'BS Software Engineering' && (
                 <div className="education-stat">
                   <strong>3.30</strong>
                   <span>
                     CGPA / 4.00
                     <br />
-                    7th Semester
+                    Final year
                   </span>
                 </div>
               )}
@@ -55,7 +56,7 @@ export default function Education() {
           ))}
         </div>
         <div className="approach-heading" data-reveal>
-          <h3>From notebook to production.</h3>
+          <h3>From notebook to deployed application.</h3>
           <p>Experiment, evaluate, engineer, deploy.</p>
         </div>
         <div className="approach-grid">

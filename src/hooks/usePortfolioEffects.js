@@ -63,26 +63,6 @@ export default function usePortfolioEffects(scope) {
             scrollTrigger: { trigger: el, start: 'top 90%', once: true },
           });
         });
-        gsap.to('.collage-one', {
-          x: 120,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.about-section',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.6,
-          },
-        });
-        gsap.to('.collage-two', {
-          x: -120,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.about-section',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.6,
-          },
-        });
         return () => {
           if (ticker) gsap.ticker.remove(ticker);
           lenis?.destroy();

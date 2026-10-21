@@ -1,22 +1,6 @@
 import { useState } from 'react';
 import { email, socials } from '../data/portfolio';
-import { Accordion, Button, GradientBars, Icon } from './ui';
-
-const faqs = [
-  [
-    'What kind of opportunities are you looking for?',
-    'I’m open to AI/ML internships, research roles, and freelance projects',
-  ],
-  ['Where are you based?', 'I’m based in Karachi, Pakistan, and I’m open to remote work.'],
-  [
-    'What do you build?',
-    'Classical ML systems, deep learning applications, fine-tuned LLMs, multilingual multimodal RAG pipelines, and agentic AI systems.',
-  ],
-  [
-    'Can I try your projects?',
-    'Loan Risk and CodeMentor have live demos. Each project includes its available demo, code, model, and API links.',
-  ],
-];
+import { Button, GradientBars, Icon } from './ui';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -31,25 +15,6 @@ export default function Contact() {
   };
   return (
     <>
-      <section className="faq-section section-pad">
-        <div className="shell faq-layout">
-          <div data-reveal>
-            <p className="eyebrow">A few useful answers</p>
-            <h2 className="display-heading">
-              Before we
-              <br />
-              <span className="muted">say hello.</span>
-            </h2>
-          </div>
-          <div data-reveal>
-            {faqs.map(([question, answer], i) => (
-              <Accordion key={question} title={`${i + 1}. ${question}`}>
-                <p>{answer}</p>
-              </Accordion>
-            ))}
-          </div>
-        </div>
-      </section>
       <section id="contact" className="contact-section">
         <GradientBars />
         <div className="shell contact-content" data-reveal>

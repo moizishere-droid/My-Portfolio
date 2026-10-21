@@ -1,4 +1,4 @@
-import { skills } from '../data/portfolio';
+import { projects, skills } from '../data/portfolio';
 import { Button, Icon, SectionHeading } from './ui';
 
 function SkillArtwork({ index }) {
@@ -63,7 +63,7 @@ function SkillArtwork({ index }) {
             <br />
             <small>✓ api &nbsp; ✓ db &nbsp; ✓ models</small>
             <br />
-            <span>●</span> production ready
+            <span>●</span> services running
           </code>
         </div>
       )}
@@ -79,21 +79,21 @@ function SkillArtwork({ index }) {
   );
 }
 
-export default function Skills() {
+export default function Skills({ onSelectProject }) {
   return (
     <section id="skills" className="skills-section section-pad">
       <div className="shell">
         <div className="skills-heading-row">
           <SectionHeading eyebrow="Expertise">
-            A complete
+            Tools behind
             <br />
-            <span className="muted">AI toolkit.</span>
+            <span className="muted">the work.</span>
           </SectionHeading>
           <div data-reveal>
             <p>
-              Five domains. One connected workflow.
+              Applied skills and technical foundations.
               <br />
-              The tools behind every experiment and deployment.
+              Explore the projects behind the tools.
             </p>
             <Button href="#projects" variant="secondary" icon="arrow">
               Explore the projects
@@ -106,18 +106,27 @@ export default function Skills() {
               <span className="card-index">0{index + 1}</span>
               <SkillArtwork index={index} />
               <h3>{skill.title}</h3>
-              <div className="skill-items">
+              <ul className="skill-tool-list">
                 {skill.items.map((item) => (
-                  <div className="skill-item" key={item.name}>
-                    <div>
-                      <span>{item.name}</span>
-                      <span>{item.level}%</span>
-                    </div>
-                    <div className="skill-meter">
-                      <i style={{ '--level': `${item.level}%` }} />
-                    </div>
-                  </div>
+                  <li key={item}>{item}</li>
                 ))}
+              </ul>
+              {skill.note && <p className="skill-evidence-note">{skill.note}</p>}
+              <div className="skill-project-links">
+                {skill.projectIds.map((id) => {
+                  const project = projects.find((item) => item.id === id);
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      className="skill-project-link"
+                      onClick={() => onSelectProject(project)}
+                    >
+                      <span>{`View ${project.title}`}</span>
+                      <Icon name="arrow" size={15} />
+                    </button>
+                  );
+                })}
               </div>
             </article>
           ))}

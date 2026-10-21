@@ -43,6 +43,20 @@ export default function ProjectDialog({ project, onClose }) {
             <p className="eyebrow">{project.status}</p>
             <h2 id="dialog-project-title">{project.title}</h2>
             <p>{project.description}</p>
+            <dl className="project-case-study">
+              <dt>Problem</dt>
+              <dd>{project.problem}</dd>
+              <dt>Approach</dt>
+              <dd>{project.approach}</dd>
+              <dt>Outcome</dt>
+              <dd>{project.outcome}</dd>
+            </dl>
+            {project.workflow && (
+              <p>
+                <strong>Development workflow: </strong>
+                {project.workflow}
+              </p>
+            )}
             <div className="project-tags">
               {project.tags.map((tag) => (
                 <span key={tag}>{tag}</span>

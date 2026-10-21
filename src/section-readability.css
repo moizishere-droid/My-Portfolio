@@ -1601,3 +1601,81 @@ body {
     padding: 14px 20px;
   }
 }
+
+/* Real application captures keep their full frame visible in every preview. */
+.project-visual.project-screenshot {
+  margin: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  color: #263244;
+}
+.project-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.project-screenshot figcaption {
+  padding: 12px 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-top: 1px solid #e5e7eb;
+}
+.project-screenshot.compact figcaption {
+  display: none;
+}
+
+/* A compact, text-focused About section replaces the decorative collage. */
+.about-section {
+  min-height: 0;
+  padding-top: clamp(48px, 6vw, 88px);
+}
+.about-section .about-intro {
+  min-height: 0;
+  overflow: visible;
+}
+.about-section .about-layout {
+  display: block;
+}
+.about-section .about-copy {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+}
+.about-section .about-copy > p:not(.eyebrow) {
+  max-width: 680px;
+}
+
+.project-case-study {
+  margin: 24px 0;
+  display: grid;
+  gap: 8px;
+}
+.project-case-study dt {
+  font-weight: 600;
+  margin-top: 12px;
+}
+.project-case-study dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.editor-shot .project-screenshot img,
+.work-art .project-screenshot img {
+  min-height: 0;
+  flex: 1 1 auto;
+  object-fit: contain;
+}
+.project-screenshot figcaption {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: clamp(20px, 6.7vw, 40px);
+    line-height: 1.15;
+  }
+}

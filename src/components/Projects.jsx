@@ -68,7 +68,9 @@ export default function Projects({ onSelectProject }) {
   return (
     <section id="projects" className="works-section" ref={scope}>
       <div className="shell work-heading" data-reveal>
-        <p className="eyebrow">Selected production work · 01—05</p>
+        <p className="eyebrow">
+          Selected projects · 01—{String(projects.length).padStart(2, '0')}
+        </p>
         <h2>
           My Work<span className="heading-period">.</span>
         </h2>
@@ -165,13 +167,6 @@ export default function Projects({ onSelectProject }) {
                       Explore project
                     </Button>
                     <div className="work-external-links">
-                      {!project.links.some((link) => link.label === 'Live Demo') && (
-                        <span className="demo-status">
-                          {project.status.startsWith('Live')
-                            ? 'Demo URL not provided'
-                            : 'Demo coming soon'}
-                        </span>
-                      )}
                       {project.links.map((link) => (
                         <a
                           key={link.href}
@@ -191,7 +186,7 @@ export default function Projects({ onSelectProject }) {
             ))}
           </div>
           <div className="gallery-bottom">
-            <span>Classical ML → Deep Learning → LLMs → RAG → Agents</span>
+            <span>Classical ML · LLM Fine-tuning · RAG Systems</span>
             <a href="#skills">
               Keep exploring <span>↓</span>
             </a>

@@ -257,7 +257,7 @@ export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
               </div>
               <div className="editor-panel-foot">
                 <span className="status-dot" />
-                20+ projects. One journey.
+                {projects.length} featured projects. One journey.
               </div>
             </aside>
             <aside className="editor-panel editor-right">
@@ -266,7 +266,7 @@ export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
                 <span>Position</span>
                 <div>
                   <small>Type</small>
-                  <b>Production</b>
+                  <b>Applied AI</b>
                 </div>
               </div>
               <div className="property-group">
@@ -280,7 +280,7 @@ export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
                 <div>
                   <small>Projects</small>
                   <b>
-                    20+ <em>Built</em>
+                    {projects.length} <em>Featured</em>
                   </b>
                 </div>
               </div>
@@ -294,10 +294,6 @@ export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
                   <small>Workflow</small>
                   <b>Experiment → Deploy</b>
                 </div>
-                <div>
-                  <small>Method</small>
-                  <b>20+ phases</b>
-                </div>
               </div>
               <div className="property-group">
                 <span>Effects</span>
@@ -307,7 +303,7 @@ export default function ProjectEditor({ onSelectProject, theme, toggleTheme }) {
                 </div>
                 <div>
                   <small>Deployment</small>
-                  <b>HF Spaces</b>
+                  <b>HF Spaces · Modal</b>
                 </div>
               </div>
               <div className="property-group">

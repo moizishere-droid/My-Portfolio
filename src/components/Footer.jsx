@@ -38,7 +38,7 @@ export default function Footer() {
             <h3>Focus</h3>
             {['Classical ML', 'Deep Learning', 'LLM Fine-tuning', 'RAG Systems', 'Agentic AI'].map(
               (label) => (
-                <a key={label} href="#projects">
+                <a key={label} href={label === 'Agentic AI' ? '#about' : label === 'Deep Learning' ? '#skills' : '#projects'}>
                   {label}
                 </a>
               ),
@@ -57,12 +57,12 @@ export default function Footer() {
             <h3>Contact</h3>
             <a href={`mailto:${email}`}>{email}</a>
             <span>Based in Karachi, Pakistan</span>
-            <span>Remote-friendly · Targeting 2027</span>
+            <span>Remote-friendly · Open to AI/ML opportunities</span>
           </div>
         </div>
         <div className="footer-bottom">
           <span>© 2026 Abdul Moiz. All rights reserved.</span>
-          <span>From experiment to production.</span>
+          <span>From experiment to deployed application.</span>
         </div>
       </div>
     </footer>

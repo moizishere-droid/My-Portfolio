@@ -2,16 +2,16 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const fs = require('node:fs');
 const path = require('node:path');
-const { JSDOM, VirtualConsole } = require('jsdom');
 
 const bundleFile = () =>
   path.join(
     'dist/assets',
     fs.readdirSync('dist/assets').find((file) => file.endsWith('.js')),
   );
-const sourceHtml = fs.readFileSync('Abdul Moiz — AI_ML Engineer.html', 'utf8');
+
 
 async function render({ width = 1440, height = 900, cardHeight = 0, reducedMotion = true } = {}) {
+  const { JSDOM, VirtualConsole } = require('jsdom');
   const errors = [];
   const console = new VirtualConsole();
   console.on('jsdomError', (error) => errors.push(error.message));
@@ -87,51 +87,28 @@ async function render({ width = 1440, height = 900, cardHeight = 0, reducedMotio
   return { dom, document: window.document, window, errors, settle };
 }
 
-test('preserves every original project, practice project, skill and education detail', async () => {
+test('featured content has valid screenshots, evidence links, and current education', async () => {
   const { projects, skills, education } = await import('../src/data/portfolio.js');
-  const original = new JSDOM(
-    sourceHtml.replace(/<style[\s\S]*?<\/style>/g, '').replace(/<script[\s\S]*?<\/script>/g, ''),
-  );
-  const text = (el) => el.textContent.trim().replace(/\s+/g, ' ');
-  const originalCards = [...original.window.document.querySelectorAll('.pcard')];
-  assert.equal(projects.length, originalCards.length);
-  projects.forEach((project, index) => {
-    const card = originalCards[index];
-    assert.equal(project.title, text(card.querySelector('h3')));
-    assert.equal(project.description, text(card.querySelector('.pc-body>p')));
-    assert.deepEqual(project.tags, [...card.querySelectorAll('.chips .chip')].map(text));
-    assert.deepEqual(
-      project.links.map((link) => link.href),
-      [...card.querySelectorAll('.pc-links a')].map((el) => el.getAttribute('href')),
-    );
-    assert.deepEqual(
-      project.practice.map((item) => item.description),
-      [...card.querySelectorAll('.sub-card p')].map(text),
-    );
-  });
-  assert.equal(
-    projects.reduce((total, project) => total + project.practice.length, 0),
-    15,
-  );
-  assert.equal(
-    skills.reduce((total, group) => total + group.items.length, 0),
-    30,
-  );
-  assert.deepEqual(
-    education.map((item) => item.description),
-    [...original.window.document.querySelectorAll('.tl-body>p')].map(text),
-  );
-  const encoded = sourceHtml.match(/data:application\/pdf;base64,([^"\s]+)/)[1];
-  assert.deepEqual(fs.readFileSync('dist/Abdul-Moiz-Resume.pdf'), Buffer.from(encoded, 'base64'));
-  original.window.close();
+  assert.deepEqual(projects.map(project => project.id), ['loan-risk', 'codementor', 'medrag']);
+  for (const project of projects) {
+    assert.ok(fs.existsSync(path.join('public', project.screenshot)));
+    assert.ok(project.screenshotAlt);
+    assert.ok(project.links.some(link => link.label === 'Live Demo'));
+    assert.ok(project.metrics.every(metric => !/phases/.test(metric.value)));
+  }
+  for (const skill of skills) {
+    for (const id of skill.projectIds) assert.ok(projects.some(project => project.id === id));
+  }
+  assert.equal(education[0].title, 'BS Software Engineering');
+  assert.equal(education[0].completion, 'Expected graduation: 2027');
 });
 
 test('filters work and opens main project details and links without practice projects', async () => {
   const page = await render();
   const { document: d, settle, errors } = page;
   try {
-    assert.equal(d.querySelectorAll('.work-gallery-card').length, 5);
-    assert.equal(d.querySelectorAll('.work-external-links a.demo-link').length, 2);
+    assert.equal(d.querySelectorAll('.work-gallery-card').length, 3);
+    assert.equal(d.querySelectorAll('.work-external-links a.demo-link').length, 3);
     assert.ok(
       d.querySelector('.work-external-links a[href="https://abdulmoiz123-loan-risk-app.hf.space"]'),
     );
@@ -161,7 +138,7 @@ test('filters work and opens main project details and links without practice pro
     assert.equal(d.body.style.overflow, '');
     d.querySelector('.work-filters button').click();
     await settle();
-    assert.equal(d.querySelectorAll('.work-gallery-card').length, 5);
+    assert.equal(d.querySelectorAll('.work-gallery-card').length, 3);
     d.querySelector('.view-toggle').click();
     await settle();
     assert.ok(d.querySelector('.work-gallery').classList.contains('work-list'));
@@ -236,7 +213,7 @@ test('animation setup renders at desktop width without runtime errors', async ()
   try {
     assert.equal(page.document.querySelectorAll('.gradient-bars>span').length, 30);
     assert.equal(page.document.querySelectorAll('.skill-card').length, 6);
-    assert.equal(page.document.querySelectorAll('.work-gallery-card').length, 5);
+    assert.equal(page.document.querySelectorAll('.work-gallery-card').length, 3);
     assert.equal(
       page.document.querySelector('[aria-label="Desktop preview"]').getAttribute('aria-pressed'),
       'true',
@@ -346,8 +323,8 @@ test('mobile and tablet use accessible unpinned project lists with all original 
     try {
       assert.equal(page.document.querySelector('.work-gallery.is-pinned'), null);
       assert.equal(page.document.querySelectorAll('.work-gallery-card[inert]').length, 0);
-      assert.equal(page.document.querySelectorAll('.work-external-links a.demo-link').length, 2);
-      assert.equal(page.document.querySelectorAll('.work-gallery-card').length, 5);
+      assert.equal(page.document.querySelectorAll('.work-external-links a.demo-link').length, 3);
+      assert.equal(page.document.querySelectorAll('.work-gallery-card').length, 3);
       assert.deepEqual(page.errors, []);
     } finally {
       page.dom.window.close();

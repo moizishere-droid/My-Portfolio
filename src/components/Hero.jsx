@@ -10,21 +10,34 @@ export default function Hero({ onSelectProject, theme, toggleTheme }) {
           <span className="status-dot" />
           AI / ML Engineer · Karachi, Pakistan
         </p>
-        <h1 className="hero-title" aria-label="Intelligent Systems. Real-world Impact.">
+        <h1
+          className="hero-title"
+          aria-label="I build ML applications, fine-tune LLMs, and develop RAG systems."
+        >
           <span className="hero-line" aria-hidden="true">
-            <LetterText>Intelligent </LetterText>
+            <LetterText>I build </LetterText>
             <em>
-              <LetterText>Systems.</LetterText>
+              <LetterText>ML applications,</LetterText>
             </em>
           </span>
           <span className="hero-line" aria-hidden="true">
-            <em className="roman">
-              <LetterText>Real-world</LetterText>
+            <LetterText>fine-tune </LetterText>
+            <em>
+              <LetterText>LLMs,</LetterText>
             </em>
-            <LetterText> Impact.</LetterText>
+          </span>
+          <span className="hero-line" aria-hidden="true">
+            <LetterText>and develop </LetterText>
+            <em className="roman">
+              <LetterText>RAG systems.</LetterText>
+            </em>
           </span>
         </h1>
-        <p className="hero-subtitle">From the first experiment to production.</p>
+        <p className="hero-subtitle">
+          Final-year BS Software Engineering student at UBIT, University of Karachi.
+          <br />
+          Graduating in 2027 · Open to AI/ML internships.
+        </p>
         <div className="hero-buttons">
           <Button href="#contact">Get in touch</Button>
           <Button href="#projects" variant="secondary">

@@ -1,33 +1,11 @@
-import { projects } from '../data/portfolio';
 import { Button } from './ui';
-import ProjectVisual from './ProjectVisual';
+import { projects } from '../data/portfolio';
 
 export default function About() {
   return (
     <section className="about-section section-pad" id="about">
       {/* About Introduction Section */}
       <div className="about-intro">
-        {/* Animated Project Collage */}
-        <div className="about-collage" aria-hidden="true">
-          {/* First Collage Track */}
-          <div className="collage-track collage-one">
-            {[projects[0], projects[2], projects[3]].map((project) => (
-              <div className="collage-card" key={project.id}>
-                <ProjectVisual project={project} compact />
-              </div>
-            ))}
-          </div>
-
-          {/* Second Collage Track */}
-          <div className="collage-track collage-two">
-            {[projects[1], projects[4], projects[0]].map((project, i) => (
-              <div className="collage-card" key={i}>
-                <ProjectVisual project={project} compact />
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* About Content */}
         <div className="shell about-layout">
           <div className="about-copy" data-reveal>
@@ -48,6 +26,11 @@ export default function About() {
             </p>
 
             <p>I turn notebook experiments into tested, deployed software.</p>
+
+            <p>
+              <strong>Currently exploring:</strong> Agentic AI, including tool calling and
+              multi-agent workflows.
+            </p>
 
             {/* Navigation Buttons */}
             <div className="inline-buttons">
@@ -74,9 +57,9 @@ export default function About() {
         {/* Projects Built */}
         <div>
           <strong>
-            <span data-count="20">20</span>+
+            <span data-count={projects.length}>{projects.length}</span>
           </strong>
-          <span>Projects built</span>
+          <span>Featured projects</span>
         </div>
 
         {/* Academic CGPA */}
@@ -94,7 +77,7 @@ export default function About() {
             <span className="status-dot" />
             Live
           </strong>
-          <span>Deployed on HuggingFace Spaces</span>
+          <span>HuggingFace Spaces &amp; Modal</span>
         </div>
       </div>
     </section>

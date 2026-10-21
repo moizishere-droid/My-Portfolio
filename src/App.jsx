@@ -41,7 +41,7 @@ export default function App() {
         <Hero onSelectProject={setProject} theme={theme} toggleTheme={toggleTheme} />
         <About />
         <Projects onSelectProject={setProject} />
-        <Skills />
+        <Skills onSelectProject={setProject} />
         <Education />
         <Resume />
         <Contact />
