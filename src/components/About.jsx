@@ -1,5 +1,4 @@
 import { Button } from './ui';
-import { projects } from '../data/portfolio';
 
 export default function About() {
   return (
@@ -57,9 +56,10 @@ export default function About() {
         {/* Projects Built */}
         <div>
           <strong>
-            <span data-count={projects.length}>{projects.length}</span>
+            <span data-count="20">20</span>+
           </strong>
-          <span>Featured projects</span>
+          <span>Projects built</span>
+          <small className="metric-context">Across learning and applied AI</small>
         </div>
 
         {/* Academic CGPA */}

@@ -1628,6 +1628,14 @@ body {
   display: none;
 }
 
+.metrics-strip .metric-context {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 /* A compact, text-focused About section replaces the decorative collage. */
 .about-section {
   min-height: 0;
@@ -1678,4 +1686,14 @@ body {
     font-size: clamp(20px, 6.7vw, 40px);
     line-height: 1.15;
   }
+}
+
+/* Wrap the headline between words instead of clipping an unbroken line. */
+.hero-title .hero-line {
+  white-space: normal;
+  text-wrap: balance;
+}
+.hero-title .hero-word {
+  display: inline-block;
+  white-space: nowrap;
 }

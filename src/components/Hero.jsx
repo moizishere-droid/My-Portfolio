@@ -1,6 +1,15 @@
 import { Button, GradientBars, LetterText } from './ui';
 import ProjectEditor from './ProjectEditor';
 
+function HeroWords({ children }) {
+  return children.split(' ').map((word, index) => (
+    <span key={`${word}-${index}`}>
+      {index > 0 && ' '}
+      <span className="hero-word"><LetterText>{word}</LetterText></span>
+    </span>
+  ));
+}
+
 export default function Hero({ onSelectProject, theme, toggleTheme }) {
   return (
     <section id="hero" className="hero">
@@ -12,31 +21,25 @@ export default function Hero({ onSelectProject, theme, toggleTheme }) {
         </p>
         <h1
           className="hero-title"
-          aria-label="I build ML applications, fine-tune LLMs, and develop RAG systems."
+          aria-label="I build AI applications—from models to deployment."
         >
           <span className="hero-line" aria-hidden="true">
-            <LetterText>I build </LetterText>
+            <HeroWords>I build</HeroWords>{' '}
             <em>
-              <LetterText>ML applications,</LetterText>
+              <HeroWords>AI applications</HeroWords>
             </em>
           </span>
           <span className="hero-line" aria-hidden="true">
-            <LetterText>fine-tune </LetterText>
-            <em>
-              <LetterText>LLMs,</LetterText>
-            </em>
-          </span>
-          <span className="hero-line" aria-hidden="true">
-            <LetterText>and develop </LetterText>
+            <HeroWords>—from models to</HeroWords>{' '}
             <em className="roman">
-              <LetterText>RAG systems.</LetterText>
+              <HeroWords>deployment.</HeroWords>
             </em>
           </span>
         </h1>
         <p className="hero-subtitle">
-          Final-year BS Software Engineering student at UBIT, University of Karachi.
+          Machine learning, LLM fine-tuning, and RAG systems.
           <br />
-          Graduating in 2027 · Open to AI/ML internships.
+          Final-year Software Engineering student · Graduating in 2027 · Open to AI/ML internships.
         </p>
         <div className="hero-buttons">
           <Button href="#contact">Get in touch</Button>
