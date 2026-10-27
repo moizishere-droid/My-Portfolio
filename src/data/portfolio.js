@@ -7,8 +7,8 @@ export const projects = [
     problem: 'Make loan predictions understandable alongside the financial inputs behind them.',
     approach: 'Combine classification, interest-rate regression, borrower segmentation, and SHAP explanations behind a FastAPI service.',
     outcome: 'A deployed application with ONNX inference and a PostgreSQL audit trail. Model evaluation scores are listed below.',
-    screenshot: 'images/projects/loan-risk.jpg',
-    screenshotAlt: 'Loan Risk Assessment System showing the new applicant form and loan and credit input fields.',
+    screenshot: 'images/projects/loan-risk.png',
+    screenshotAlt: 'Loan Risk Assessment landing page showing an illustrative approved loan and risk metrics.',
     workflow:
       'Train and tune the prediction models, evaluate classification and regression results, export to ONNX, and serve predictions with FastAPI, SHAP explanations, and PostgreSQL audit logging.',
     description:
@@ -65,8 +65,8 @@ export const projects = [
     problem: 'Adapt a general instruction model for coding questions.',
     approach: 'Use QLoRA with supervised fine-tuning, followed by preference alignment with DPO.',
     outcome: 'A deployed coding assistant and published model. Generated code requires review and testing.',
-    screenshot: 'images/projects/codementor.jpg',
-    screenshotAlt: 'CodeMentor-LLM coding assistant showing its question input and Generate Response button.',
+    screenshot: 'images/projects/codementor.png',
+    screenshotAlt: 'Code Mentor LLM updated sign-in page with coding workspace introduction and account form.',
     workflow:
       'Fine-tune Llama 3.2 with supervised fine-tuning (SFT), follow with direct preference optimization (DPO), track experiments in W&B, and deploy on HuggingFace Spaces with GitHub Actions CI/CD.',
     description:
@@ -119,8 +119,8 @@ export const projects = [
     problem: 'Find relevant medical reference material and return answers with source citations.',
     approach: 'Combine hybrid retrieval, reranking, and knowledge graph enrichment with multilingual answers and session-specific PDF uploads.',
     outcome: 'A Modal-hosted application with Docker packaging for local use and 22,696 indexed chunks. Latency figures cover only three warmed queries, not a general performance guarantee.',
-    screenshot: 'images/projects/medrag.jpg',
-    screenshotAlt: 'MedRAG medical knowledge assistant showing its chat workspace, session controls, and document upload options.',
+    screenshot: 'images/projects/medrag.png',
+    screenshotAlt: 'MedRAG updated research landing page with an example medical question and source-connected workspace.',
     description:
       'A multilingual medical knowledge assistant that searches PubMed, WHO guidelines, and OpenFDA to generate cited answers. Combines hybrid retrieval, reranking, and knowledge graph enrichment, with saved conversations, private PDF chat, and available source tables and figures. Built with FastAPI and Streamlit and deployed on Modal, with Docker packaging to build and run the application locally.',
     status: 'Live on Modal',
