@@ -60,15 +60,15 @@ export const projects = [
     number: '02',
     category: 'LLM Fine-tuning',
     title: 'CodeMentor-LLM',
-    problem: 'Adapt a general instruction model for coding questions.',
-    approach: 'Use QLoRA with supervised fine-tuning, followed by preference alignment with DPO.',
-    outcome: 'A deployed coding assistant and published model. Generated code requires review and testing.',
+    problem: 'Adapt a small instruction model for coding assistance within Colab T4 limits.',
+    approach: 'Use QLoRA supervised fine-tuning, a small DPO preference experiment, and held-out text-similarity evaluation.',
+    outcome: 'Recorded DPO ROUGE-L 0.2077 (base 0.1807) and BERTScore F1 0.8491 (SFT 0.8504) on 50 test examples. These are similarity scores, not code-correctness rates. The application passed 85 automated tests and a live generation/history/login check.',
     screenshot: 'images/projects/codementor.png',
-    screenshotAlt: 'Code Mentor LLM updated sign-in page with coding workspace introduction and account form.',
+    screenshotAlt: 'Code Mentor LLM sign-in page with coding workspace introduction and account form.',
     workflow:
-      'Fine-tune Llama 3.2 with supervised fine-tuning (SFT), follow with direct preference optimization (DPO), track experiments in W&B, and deploy on HuggingFace Spaces with GitHub Actions CI/CD.',
+      'Notebook experiments → tested source → documentation. Clean 20,022 records to 19,024 and create fixed 80/10/10 splits; train 5,000 SFT examples for three epochs and 200 DPO pairs for one epoch; compare base, SFT and DPO on 50 test examples; serve the merged model on Modal behind the combined Space. The code review did not retrain the model weights.',
     description:
-      'Coding assistant built by fine-tuning Llama-3.2-3B-Instruct with a two-stage SFT + DPO alignment pipeline on 5,000 coding pairs. CI/CD via GitHub Actions, experiment tracking on W&B, deployed on HF Spaces.',
+      'Coding assistant adapted from Llama-3.2-3B-Instruct using QLoRA SFT on 5,000 examples for three epochs, followed by exploratory DPO on 200 model-labelled preference pairs for one epoch. A combined FastAPI/Streamlit Hugging Face Space calls Modal A10G inference and provides accounts, streamed answers and private request history.',
     status: 'Live on HF Spaces',
     tags: [
       'Llama-3.2-3B',
@@ -77,19 +77,25 @@ export const projects = [
       'DPO',
       'PEFT',
       'W&B',
+      'Modal',
       'FastAPI',
       'Streamlit',
+      'SQLite',
       'Docker',
-      'CI/CD',
+      'GitHub Actions',
     ],
     metrics: [
       {
-        value: 'SFT + DPO',
-        label: 'Two-stage',
+        value: '0.2077',
+        label: 'DPO ROUGE-L · 50 examples',
       },
       {
-        value: '5k pairs',
-        label: 'Training data',
+        value: '5k / 200',
+        label: 'SFT examples / DPO pairs',
+      },
+      {
+        value: '85 tests',
+        label: 'Automated checks',
       },
     ],
     links: [
@@ -217,7 +223,7 @@ export const projectSummaries = {
   'loan-risk':
     'Estimates default risk and interest rates, groups borrower profiles, and explains predictions with SHAP. Built with grouped hold-out evaluation, account-scoped records, and Docker deployment.',
   codementor:
-    'A coding assistant built by fine-tuning Llama 3.2 with SFT and DPO, deployed on HuggingFace Spaces.',
+    'A QLoRA SFT and DPO coding assistant with Modal GPU inference, streamed answers and private history in a Hugging Face Space.',
   medrag:
     'A multilingual medical evidence assistant with source citations, hybrid retrieval over 22,696 indexed chunks, and sign-in, saved chats, and PDF uploads. Deployed on Modal, with Docker packaging for local builds and runs.',
 };
