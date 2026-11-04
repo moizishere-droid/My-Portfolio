@@ -1,61 +1,59 @@
 export const projects = [
   {
-    id: 'loan-risk',
-    number: '01',
-    category: 'Classical ML',
-    title: 'Loan Risk Assessment System',
-    problem: 'Make loan predictions understandable alongside the financial inputs behind them.',
-    approach: 'Combine classification, interest-rate regression, borrower segmentation, and SHAP explanations behind a FastAPI service.',
-    outcome: 'A deployed application with ONNX inference and a PostgreSQL audit trail. Model evaluation scores are listed below.',
-    screenshot: 'images/projects/loan-risk.png',
-    screenshotAlt: 'Loan Risk Assessment landing page showing an illustrative approved loan and risk metrics.',
-    workflow:
-      'Train and tune the prediction models, evaluate classification and regression results, export to ONNX, and serve predictions with FastAPI, SHAP explanations, and PostgreSQL audit logging.',
-    description:
-      "End-to-end ML system for loan risk prediction. Takes an applicant's financial profile and returns an approval decision, predicted interest rate, borrower segment, and plain-English SHAP explanation — backed by ONNX-exported models, FastAPI, and a PostgreSQL audit trail on Neon Cloud.",
-    status: 'Live on HF Spaces',
-    tags: [
-      'LightGBM',
-      'RandomForest',
-      'GMM',
-      'ONNX Runtime',
-      'SHAP',
-      'Optuna',
-      'FastAPI',
-      'PostgreSQL',
-      'Docker',
-      'HuggingFace Spaces',
+    "id": "loan-risk",
+    "number": "01",
+    "category": "Classical ML",
+    "title": "Loan Risk Assessment System",
+    "problem": "Assess default risk and explain the factors behind each prediction.",
+    "approach": "Use shared profile-group splits, training-only preprocessing, and validation-selected LightGBM, Random Forest, and GMM models.",
+    "outcome": "Held-out default F1 0.8375 and ROC-AUC 0.9498 on 4,865 records. Rate R² 0.9070 and RMSE 0.9746 percentage points on 4,401 records; the rate model uses lender-assigned grade. Cluster silhouette: 0.2336, indicating overlapping groups.",
+    "screenshot": "images/projects/loan-risk.png",
+    "screenshotAlt": "Loan Risk Assessment application preview with an illustrative assessment.",
+    "workflow": "Notebook experiments → verified source → documentation. Clean 32,581 rows to 32,408; split matching profiles together into shared 70/15/15 partitions; fit transformations on training only; select configurations on validation; evaluate held-out records; verify ONNX parity; deploy one Docker Space with Streamlit, private FastAPI, and PostgreSQL.",
+    "description": "A deployed loan-risk demo that estimates default risk and interest rates, groups borrower profiles, and explains model outputs with SHAP. New applications receive an estimated rate before default scoring; existing loans use the supplied rate. A fixed 0.60 default-score threshold drives the demo approval label. Includes account-scoped saved assessments and atomic database writes; this is a portfolio application, not a validated bank lending policy.",
+    "status": "Live on HF Spaces",
+    "tags": [
+      "LightGBM",
+      "Random Forest",
+      "GMM",
+      "ONNX Runtime",
+      "SHAP",
+      "FastAPI",
+      "Streamlit",
+      "PostgreSQL",
+      "Docker",
+      "HuggingFace Spaces"
     ],
-    metrics: [
+    "metrics": [
       {
-        value: 'F1 0.8390',
-        label: 'Classification',
+        "value": "F1 0.8375",
+        "label": "Default classification"
       },
       {
-        value: 'AUC 0.9471',
-        label: 'ROC Score',
+        "value": "AUC 0.9498",
+        "label": "Default ranking"
       },
       {
-        value: 'R² 0.9077',
-        label: 'Regression',
-      },
+        "value": "R² 0.9070",
+        "label": "Interest-rate regression"
+      }
     ],
-    links: [
+    "links": [
       {
-        label: 'GitHub',
-        href: 'https://github.com/moizishere-droid/loan-risk-system',
+        "label": "GitHub",
+        "href": "https://github.com/moizishere-droid/loan-risk-system"
       },
       {
-        label: 'Live Demo',
-        href: 'https://abdulmoiz123-loan-risk-app.hf.space',
+        "label": "Live Demo",
+        "href": "https://abdulmoiz123-loan-risk-app.hf.space"
       },
       {
-        label: 'Models',
-        href: 'https://huggingface.co/Abdulmoiz123/loan-risk-models',
-      },
+        "label": "Models",
+        "href": "https://huggingface.co/Abdulmoiz123/loan-risk-models"
+      }
     ],
-    practiceTitle: '',
-    practice: [],
+    "practiceTitle": "",
+    "practice": []
   },
   {
     id: 'codementor',
@@ -217,7 +215,7 @@ export const education = [
 
 export const projectSummaries = {
   'loan-risk':
-    'Predicts loan approval, interest rates, and borrower segments, with SHAP explanations and a deployed FastAPI backend.',
+    'Estimates default risk and interest rates, groups borrower profiles, and explains predictions with SHAP. Built with grouped hold-out evaluation, account-scoped records, and Docker deployment.',
   codementor:
     'A coding assistant built by fine-tuning Llama 3.2 with SFT and DPO, deployed on HuggingFace Spaces.',
   medrag:
