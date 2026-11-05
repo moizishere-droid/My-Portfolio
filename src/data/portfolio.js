@@ -120,48 +120,38 @@ export const projects = [
     number: '03',
     category: 'RAG Systems',
     title: 'MedRAG',
-    problem: 'Find relevant medical reference material and return answers with source citations.',
-    approach: 'Combine hybrid retrieval, reranking, and knowledge graph enrichment with multilingual answers and session-specific PDF uploads.',
-    outcome: 'A Modal-hosted application with Docker packaging for local use and 22,696 indexed chunks. Latency figures cover only three warmed queries, not a general performance guarantee.',
+    problem: 'Retrieve traceable medical evidence while keeping private documents isolated to their chat.',
+    approach:
+      'Fuse dense and BM25 search with reciprocal rank fusion, rerank candidates with a CPU ONNX cross-encoder, and supplement passages with source-supported Neo4j relationships.',
+    outcome:
+      'Deployed on Modal with real answer streaming and 22,696 curated text chunks. Verified 458 Python tests with 90.22% statement coverage, plus hosted checks of citations, history and chat-scoped PDF isolation. Software verification does not establish clinical accuracy or a fixed response-time guarantee.',
     screenshot: 'images/projects/medrag.png',
-    screenshotAlt: 'MedRAG updated research landing page with an example medical question and source-connected workspace.',
+    screenshotAlt: 'MedRAG research landing page with a medical question and source-connected chat workspace.',
+    workflow:
+      'Collect and deduplicate PubMed abstracts, OpenFDA labels and WHO documents; create source-aware chunks and dense/sparse indexes; retrieve 20 fused candidates and rerank to five passages; stream a cited answer and atomically save the completed conversation. Validate ownership, upload publication and failure handling before deployment. Uses pretrained models without medical model fine-tuning.',
     description:
-      'A multilingual medical knowledge assistant that searches PubMed, WHO guidelines, and OpenFDA to generate cited answers. Combines hybrid retrieval, reranking, and knowledge graph enrichment, with saved conversations, private PDF chat, and available source tables and figures. Built with FastAPI and Streamlit and deployed on Modal, with Docker packaging to build and run the application locally.',
+      'An educational medical evidence assistant with multilingual answers and numbered citations across PubMed, WHO and OpenFDA. Combines hybrid retrieval, cross-encoder reranking and a label-derived drug knowledge graph. FastAPI and Streamlit provide authenticated saved chats, chat-scoped PDF uploads, verified source figures and tables, and real incremental answer streaming. Deployed on Modal with PostgreSQL persistence and Docker support for local use; not clinically validated.',
     status: 'Live on Modal',
     tags: [
       'Hybrid Retrieval',
-      'Reranking',
-      'Qdrant',
-      'BM25',
+      'Qdrant / BM25',
+      'Cross-encoder',
       'Neo4j',
       'ONNX Runtime',
       'FastAPI',
       'Streamlit',
+      'PostgreSQL',
+      'Modal',
       'Docker',
     ],
     metrics: [
-      {
-        value: '22,696',
-        label: 'Indexed chunks',
-      },
-      {
-        value: '49.8–66.5%',
-        label: 'Lower latency · 3 warmed queries',
-      },
-      {
-        value: 'Top 5',
-        label: 'Retrieval order preserved',
-      },
+      { value: '22,696', label: 'Curated text chunks' },
+      { value: '458 tests', label: 'Python verification' },
+      { value: '90.22%', label: 'Statement coverage' },
     ],
     links: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/moizishere-droid/medrag',
-      },
-      {
-        label: 'Live Demo',
-        href: 'https://moizishere-droid--medrag.modal.run/',
-      },
+      { label: 'GitHub', href: 'https://github.com/moizishere-droid/medrag' },
+      { label: 'Live Demo', href: 'https://moizishere-droid--medrag.modal.run/' },
     ],
     practiceTitle: '',
     practice: [],
@@ -225,7 +215,7 @@ export const projectSummaries = {
   codementor:
     'A QLoRA SFT and DPO coding assistant with Modal GPU inference, streamed answers and private history in a Hugging Face Space.',
   medrag:
-    'A multilingual medical evidence assistant with source citations, hybrid retrieval over 22,696 indexed chunks, and sign-in, saved chats, and PDF uploads. Deployed on Modal, with Docker packaging for local builds and runs.',
+    'Searches 22,696 medical text chunks with hybrid retrieval and reranking. Streams cited, multilingual answers with saved chats and private PDF uploads. Deployed on Modal; an educational demo.',
 };
 
 export const email = 'abdulmoiz.aiml.dev@gmail.com';
